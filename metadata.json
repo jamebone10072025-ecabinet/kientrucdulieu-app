@@ -1,0 +1,6 @@
+{
+  "name": "Khung Kiến trúc & Quản trị dữ liệu Quốc gia",
+  "description": "Cẩm nang hướng dẫn triển khai Khung kiến trúc dữ liệu Quốc gia, Khung quản trị, quản lý dữ liệu Quốc gia, Từ điển dữ liệu dùng chung, tiêu chuẩn định danh, nền tảng kết nối NDOP/LDOP và giải pháp bảo mật theo Quyết định 2439/QĐ-TTg & Công văn 4856/BCA-TTDLQG.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
