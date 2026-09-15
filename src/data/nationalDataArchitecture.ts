@@ -253,7 +253,7 @@ export const CORE_DATA_DOMAINS: DataDomain[] = [
     name: '2. Miền dữ liệu về Tổ chức',
     code: 'DOM-ORG',
     description: 'Chứa thông tin pháp lý về doanh nghiệp, hợp tác xã, cơ quan nhà nước, tổ chức sự nghiệp và đoàn thể.',
-    authority: 'Bộ Kế hoạch & Đầu tư / Bộ Tài chính / Bộ Nội vụ (Cấp tỉnh: Sở Tài chính)',
+    authority: 'Bộ Kế hoạch & Đầu tư / Bộ Tài chính / Bộ Nội vụ (Cấp tỉnh: Sở Kế hoạch & Đầu tư / Sở Tài chính)',
     sourceDb: 'CSDL Quốc gia về Đăng ký doanh nghiệp, CSDL Cán bộ công chức viên chức',
     identifierKey: 'Mã số doanh nghiệp / Mã số thuế / Mã định danh cơ quan nhà nước',
     sampleFields: [
@@ -262,7 +262,7 @@ export const CORE_DATA_DOMAINS: DataDomain[] = [
       { field: 'Nguoi_Dai_Dien_Phap_Luat', type: 'String(12)', description: 'Số ĐDCN của người đại diện pháp luật', required: true, technicalRule: 'Foreign Key -> DOM-HUMAN.So_Dinh_Danh' },
       { field: 'Trang_Thai_Hoat_Dong', type: 'String(50)', description: 'Tình trạng pháp lý hoạt động của doanh nghiệp', required: true, technicalRule: 'Dropdown API Master Data' },
     ],
-    purposeAtProvince: 'Cấp phép kinh doanh, quản lý doanh nghiệp và thuế trên địa bàn tỉnh (do Sở Tài chính đảm nhiệm theo mô hình chính quyền địa phương 2 cấp).',
+    purposeAtProvince: 'Cấp phép kinh doanh, quản lý đăng ký doanh nghiệp, hợp tác xã và xúc tiến đầu tư trên địa bàn tỉnh (do Sở Kế hoạch và Đầu tư chủ trì thực hiện).',
     accessMode: 'API/DaaS',
   },
   {
@@ -488,7 +488,7 @@ export const INITIAL_ISSUE_LOGS: IssueLogItem[] = [
     severityLevel: 'Vàng',
     warningSource: 'Rà quét nội bộ (Data Profiling)',
     violatingField: 'Số điện thoại liên hệ đại diện pháp luật',
-    responsibleUnit: 'Bộ phận Một cửa - Sở Tài chính (tiếp nhận từ Sở KH&ĐT theo mô hình chính quyền 2 cấp)',
+    responsibleUnit: 'Bộ phận Một cửa - Sở Kế hoạch và Đầu tư',
     slaDeadline: '09/10/2026 (SLA 5 ngày)',
     status: 'Mới',
     actionTaken: 'Cấu hình lại phần mềm bắt buộc gán thuộc tính NOT NULL, thông báo 3 doanh nghiệp bổ sung số điện thoại.',

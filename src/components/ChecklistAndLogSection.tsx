@@ -10,15 +10,16 @@ import {
   Clock, 
   ShieldCheck, 
   Search, 
-  CheckCircle2,
-  XCircle,
-  AlertOctagon,
-  Filter,
-  Sparkles,
-  Bot,
-  Copy,
-  RefreshCw
+  CheckCircle2, 
+  XCircle, 
+  AlertOctagon, 
+  Filter, 
+  Sparkles, 
+  Bot, 
+  Copy, 
+  RefreshCw 
 } from 'lucide-react';
+import { sendDiagnoseIssue } from '../utils/geminiApi';
 
 export const ChecklistAndLogSection: React.FC = () => {
   // Checklist State
@@ -51,7 +52,7 @@ export const ChecklistAndLogSection: React.FC = () => {
   const [newErrorType, setNewErrorType] = useState<string>('Trùng lặp dữ liệu');
   const [newSeverity, setNewSeverity] = useState<'Đỏ' | 'Vàng' | 'Xanh'>('Đỏ');
   const [newViolatingField, setNewViolatingField] = useState<string>('Mã số doanh nghiệp');
-  const [newUnit, setNewUnit] = useState<string>('Sở Tài chính');
+  const [newUnit, setNewUnit] = useState<string>('Sở Kế hoạch và Đầu tư');
   const [newSource, setNewSource] = useState<string>('Rà soát định kỳ TTDLQG');
   const [newDeadline, setNewDeadline] = useState<string>('5 ngày làm việc');
 
@@ -93,21 +94,13 @@ export const ChecklistAndLogSection: React.FC = () => {
     setCopiedDiagnosis(false);
 
     try {
-      const res = await fetch('/api/gemini/diagnose-issue', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          errorType: log.errorType,
-          violatingField: log.violatingField,
-          responsibleUnit: log.responsibleUnit,
-          description: `${log.code}: ${log.actionTaken}`,
-        }),
+      const diagnosis = await sendDiagnoseIssue({
+        errorType: log.errorType,
+        violatingField: log.violatingField,
+        responsibleUnit: log.responsibleUnit,
+        description: `${log.code}: ${log.actionTaken}`,
       });
-      const data = await res.json();
-      if (!res.ok || data.error) {
-        throw new Error(data.error || 'Không thể chẩn đoán sự cố.');
-      }
-      setDiagnosisResult(data.diagnosis);
+      setDiagnosisResult(diagnosis);
     } catch (err: any) {
       setDiagnosisResult(`Lỗi phân tích từ Gemini: ${err.message || 'Vui lòng kiểm tra lại cấu hình hệ thống'}`);
     } finally {
@@ -382,11 +375,13 @@ export const ChecklistAndLogSection: React.FC = () => {
                     value={newUnit}
                     onChange={(e) => setNewUnit(e.target.value)}
                     list="suggested-units"
-                    placeholder="Sở Tài chính, Phòng Nghiệp vụ..."
+                    placeholder="Sở KH&ĐT, Sở Tài chính, Phòng Nghiệp vụ..."
                     className="w-full p-2 border border-slate-300 rounded-lg text-xs"
                     required
                   />
                   <datalist id="suggested-units">
+                    <option value="Bộ phận Một cửa - Sở Kế hoạch và Đầu tư" />
+                    <option value="Sở Kế hoạch và Đầu tư" />
                     <option value="Bộ phận Một cửa - Sở Tài chính" />
                     <option value="Sở Tài chính" />
                     <option value="Phòng Cảnh sát QLHC về TTXH" />

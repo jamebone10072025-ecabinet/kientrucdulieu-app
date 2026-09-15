@@ -15,6 +15,7 @@ import {
   Copy,
   AlertCircle
 } from 'lucide-react';
+import { sendChatMessage, sendSchemaSuggest } from '../utils/geminiApi';
 
 interface LegalAssistantModalProps {
   isOpen: boolean;
@@ -67,10 +68,10 @@ const FAQS: FaqItem[] = [
     citation: 'Phụ lục 3 Mục IV.3',
   },
   {
-    question: 'Khi sắp xếp, sáp nhập đơn vị hành chính và tinh gọn bộ máy (Sở KH&ĐT sáp nhập vào Sở Tài chính, chính quyền 2 cấp), dữ liệu xử lý ra sao?',
+    question: 'Sở Kế hoạch và Đầu tư (Sở KH&ĐT) đóng vai trò gì trong quản trị dữ liệu Doanh nghiệp và Đầu tư tại địa phương?',
     category: 'Định danh dữ liệu',
-    answer: 'Theo mô hình chính quyền địa phương 2 cấp, chức năng quản lý doanh nghiệp, đầu tư và tài chính được hợp nhất về Sở Tài chính. Về mặt dữ liệu: (1) Tiếp tục lưu giữ dữ liệu gốc, mã định danh và thông tin đơn vị hành chính theo giá trị lịch sử; TUYỆT ĐỐI KHÔNG sửa đổi hồi tố làm mất bối cảnh; (2) Sở Tài chính tiếp nhận nguyên trạng và kế thừa toàn bộ CSDL Đăng ký kinh doanh, CSDL Đầu tư; (3) Thiết lập Bảng ánh xạ mã cơ quan và mã ĐVHC trước - sau sắp xếp để phục vụ liên thông qua NDOP.',
-    citation: 'Phụ lục 3 Mục II.1.f & II.1.g & Mô hình chính quyền địa phương 2 cấp',
+    answer: 'Sở Kế hoạch và Đầu tư duy trì hoạt động độc lập, là cơ quan chuyên môn thuộc UBND cấp tỉnh chủ trì quản lý nhà nước về CSDL Đăng ký doanh nghiệp, hợp tác xã và CSDL dự án đầu tư: (1) Quản trị và chịu trách nhiệm trực tiếp về tính "Đúng, Đủ, Sạch, Sống, Thống nhất" của Miền dữ liệu Tổ chức (DOM-ORG) cấp địa phương; (2) Giữ nguyên vẹn mã số doanh nghiệp (10-13 số) làm khóa định danh duy nhất (ngưỡng DQI 100%); (3) Phối hợp với Sở Tài chính (quản lý ngân sách, thuế, tài sản công) và Cục Thuế đồng bộ dữ liệu doanh nghiệp và nghĩa vụ thuế qua NDOP/LGSP; (4) Tuân thủ nguyên tắc bảo toàn dữ liệu lịch sử, không sửa đổi hồi tố và lập Bảng ánh xạ mã ĐVHC khi có sắp xếp địa giới hành chính.',
+    citation: 'Phụ lục 3 Mục II.1.f & Quyết định 2439/QĐ-TTg',
   },
   {
     question: 'Máy chủ Agent Node được đặt ở đâu và ai chịu trách nhiệm an ninh mạng?',
@@ -81,7 +82,7 @@ const FAQS: FaqItem[] = [
 ];
 
 const SUGGESTED_QUESTIONS = [
-  'Sở KH&ĐT sáp nhập vào Sở Tài chính: Kế thừa CSDL Doanh nghiệp và xử lý mã ĐVHC 2 cấp như thế nào?',
+  'Vai trò của Sở KH&ĐT trong quản trị CSDL Doanh nghiệp & Đầu tư theo QĐ 2439?',
   'Ngưỡng DQI 100% đối với CCCD và Mã số doanh nghiệp quy định xử lý ra sao khi phát hiện lỗi?',
   'Khung cam kết thời hạn SLA xử lý sự cố dữ liệu 5-10-15 ngày áp dụng cho ai?',
   'Quy trình 05 bước kết nối, tích hợp dữ liệu từ Kho dữ liệu tỉnh lên NDOP?',
@@ -97,7 +98,7 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'model',
-      text: 'Xin chào đồng chí! Tôi là Trợ lý AI Cấp cao về Khung Kiến trúc & Quản trị dữ liệu Quốc gia (Google Gemini 3.8 Flash).\n\nTôi sẵn sàng hỗ trợ giải đáp mọi nghiệp vụ, quy chuẩn kỹ thuật theo Quyết định 2439/QĐ-TTg, Công văn 4856/BCA-TTDLQG, Nghị định 278/2025/NĐ-CP và mô hình tổ chức chính quyền địa phương 2 cấp (Sở Tài chính kế thừa chức năng Sở KH&ĐT). Đồng chí cần tra cứu nội dung gì?',
+      text: 'Xin chào đồng chí! Tôi là Trợ lý AI Cấp cao về Khung Kiến trúc & Quản trị dữ liệu Quốc gia (Google Gemini 3.8 Flash).\n\nTôi sẵn sàng hỗ trợ giải đáp mọi nghiệp vụ, quy chuẩn kỹ thuật theo Quyết định 2439/QĐ-TTg, Công văn 4856/BCA-TTDLQG, Nghị định 278/2025/NĐ-CP, cũng như hướng dẫn quản trị CSDL chuyên ngành của Sở KH&ĐT, Sở Tài chính, Công an tỉnh, Sở Tư pháp... Đồng chí cần tra cứu nội dung gì?',
       time: 'Vừa xong',
     },
   ]);
@@ -140,26 +141,15 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
     setChatError(null);
 
     try {
-      const res = await fetch('/api/gemini/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message: text,
-          conversationHistory: messages.map((m) => ({
-            role: m.role,
-            content: m.text,
-          })),
-        }),
-      });
-
-      const data = await res.json();
-      if (!res.ok || data.error) {
-        throw new Error(data.error || 'Lỗi xử lý phản hồi từ Gemini API.');
-      }
+      const history = messages.map((m) => ({
+        role: m.role,
+        content: m.text,
+      }));
+      const reply = await sendChatMessage(text, history);
 
       const modelMsg: ChatMessage = {
         role: 'model',
-        text: data.reply || 'Đã nhận yêu cầu.',
+        text: reply || 'Đã nhận yêu cầu.',
         time: new Date().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }),
       };
 
@@ -184,19 +174,11 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
     setSchemaResult(null);
 
     try {
-      const res = await fetch('/api/gemini/schema-suggest', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          tableName: schemaTable,
-          columnsDescription: schemaColumns,
-        }),
+      const suggestion = await sendSchemaSuggest({
+        tableName: schemaTable,
+        columnsDescription: schemaColumns,
       });
-      const data = await res.json();
-      if (!res.ok || data.error) {
-        throw new Error(data.error || 'Lỗi phân tích ánh xạ.');
-      }
-      setSchemaResult(data.suggestion);
+      setSchemaResult(suggestion);
     } catch (err: any) {
       setSchemaResult(`Lỗi: ${err.message || 'Không thể thực hiện ánh xạ từ điển'}`);
     } finally {
@@ -386,7 +368,7 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
               >
                 <input
                   type="text"
-                  placeholder="Nhập câu hỏi nghiệp vụ (ví dụ: Quy chế bàn giao CSDL cho Sở Tài chính, kiểm tra DQI, phân vùng Agent Node...)"
+                  placeholder="Nhập câu hỏi nghiệp vụ (ví dụ: Trách nhiệm quản trị CSDL của Sở KH&ĐT, kiểm tra DQI, phân vùng Agent Node...)"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   disabled={isLoading}
@@ -431,7 +413,7 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
                 <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
-                  placeholder="Tìm kiếm câu hỏi tình huống (ví dụ: Agent Node, IOC, SLA, kiêm nhiệm, Sở Tài chính...)"
+                  placeholder="Tìm kiếm câu hỏi tình huống (ví dụ: Sở KH&ĐT, Agent Node, IOC, SLA, kiêm nhiệm, Sở Tài chính...)"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   className="w-full pl-9 pr-3 py-2 bg-white border border-slate-300 rounded-lg text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500"
@@ -515,7 +497,7 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
                 </h4>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Nhập tên bảng và danh sách cột của hệ thống nghiệp vụ tại tỉnh/thành phố (ví dụ: phần mềm Cấp phép kinh doanh của Sở Tài chính, Hộ tịch của Sở Tư pháp). Mô hình Gemini sẽ tự động đối chiếu, chỉ định khóa chính, khóa ngoại liên kết quốc gia và quy tắc DQI cần thiết.
+                Nhập tên bảng và danh sách cột của hệ thống nghiệp vụ tại tỉnh/thành phố (ví dụ: phần mềm Đăng ký kinh doanh của Sở Kế hoạch và Đầu tư, Hộ tịch của Sở Tư pháp). Mô hình Gemini sẽ tự động đối chiếu, chỉ định khóa chính, khóa ngoại liên kết quốc gia và quy tắc DQI cần thiết.
               </p>
 
               <div className="flex flex-wrap gap-2 pt-1 text-xs">
@@ -523,12 +505,12 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
                 <button
                   type="button"
                   onClick={() => {
-                    setSchemaTable('dn_dangky_kinhdoanh_sotaichinh');
-                    setSchemaColumns('ma_so_dn (text), ten_doanh_nghiep (text), cccd_nguoidaidien (text), ngay_thanhlap (date), diachi_tru_so (text), von_kinhdoanh (numeric), trangthai (text)');
+                    setSchemaTable('dn_dangky_kinhdoanh_sokhdt');
+                    setSchemaColumns('ma_so_dn (text), ten_doanh_nghiep (text), cccd_nguoidaidien (text), ngay_thanhlap (date), diachi_tru_so (text), von_dieule (numeric), nganh_nghe_chinh (text), trangthai (text)');
                   }}
                   className="px-2.5 py-1 rounded bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 text-[11px] border border-slate-200"
                 >
-                  Sở Tài chính (Đăng ký kinh doanh)
+                  Sở KH&ĐT (Đăng ký kinh doanh & Doanh nghiệp)
                 </button>
                 <button
                   type="button"
