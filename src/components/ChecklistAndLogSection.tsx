@@ -52,7 +52,7 @@ export const ChecklistAndLogSection: React.FC = () => {
   const [newErrorType, setNewErrorType] = useState<string>('Trùng lặp dữ liệu');
   const [newSeverity, setNewSeverity] = useState<'Đỏ' | 'Vàng' | 'Xanh'>('Đỏ');
   const [newViolatingField, setNewViolatingField] = useState<string>('Mã số doanh nghiệp');
-  const [newUnit, setNewUnit] = useState<string>('Sở Kế hoạch và Đầu tư');
+  const [newUnit, setNewUnit] = useState<string>('Sở Tài chính');
   const [newSource, setNewSource] = useState<string>('Rà soát định kỳ TTDLQG');
   const [newDeadline, setNewDeadline] = useState<string>('5 ngày làm việc');
 
@@ -124,7 +124,7 @@ export const ChecklistAndLogSection: React.FC = () => {
               Checklist 11 tiêu chí kiểm tra chất lượng dữ liệu trước khi đồng bộ NDOP
             </h3>
             <p className="text-xs text-slate-500 mt-0.5">
-              Áp dụng cho Bộ phận Kỹ thuật dữ liệu trước khi truyền tải dữ liệu qua Nền tảng chia sẻ, điều phối dữ liệu lên CSDL Tổng hợp quốc gia
+              Áp dụng cho Bộ phận Kỹ thuật dữ liệu trước khi truyền tải dữ liệu qua Nền tảng Chia sẻ, Điều phối Dữ liệu Quốc gia (NDOP) lên CSDL Tổng hợp Quốc gia
             </p>
           </div>
 
@@ -188,7 +188,7 @@ export const ChecklistAndLogSection: React.FC = () => {
           <div className="p-3 bg-amber-50 border border-amber-300 rounded-lg text-xs text-amber-800 flex items-center gap-2">
             <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0" />
             <span>
-              <strong>CHƯA ĐỦ ĐIỀU KIỆN:</strong> Vui lòng rà soát và tích kiểm tra các hạng mục còn lại trước khi gửi hồ sơ đồng bộ lên Trung tâm Dữ liệu quốc gia.
+              <strong>CHƯA ĐỦ ĐIỀU KIỆN:</strong> Vui lòng rà soát và tích kiểm tra các hạng mục còn lại trước khi gửi hồ sơ đồng bộ lên Trung tâm Dữ liệu Quốc gia.
             </span>
           </div>
         )}
@@ -375,13 +375,11 @@ export const ChecklistAndLogSection: React.FC = () => {
                     value={newUnit}
                     onChange={(e) => setNewUnit(e.target.value)}
                     list="suggested-units"
-                    placeholder="Sở KH&ĐT, Sở Tài chính, Phòng Nghiệp vụ..."
+                    placeholder="Sở Tài chính, Sở Tư pháp, Phòng Nghiệp vụ..."
                     className="w-full p-2 border border-slate-300 rounded-lg text-xs"
                     required
                   />
                   <datalist id="suggested-units">
-                    <option value="Bộ phận Một cửa - Sở Kế hoạch và Đầu tư" />
-                    <option value="Sở Kế hoạch và Đầu tư" />
                     <option value="Bộ phận Một cửa - Sở Tài chính" />
                     <option value="Sở Tài chính" />
                     <option value="Phòng Cảnh sát QLHC về TTXH" />

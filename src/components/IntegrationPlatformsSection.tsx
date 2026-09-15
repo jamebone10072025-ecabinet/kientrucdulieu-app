@@ -33,11 +33,11 @@ export const IntegrationPlatformsSection: React.FC = () => {
             <span>Trục kết nối Quốc gia - Tỉnh theo Nghị định 278/2025/NĐ-CP</span>
           </div>
           <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
-            Nền tảng tích hợp & chia sẻ dữ liệu cấp Bộ, ngành và địa phương
+            Nền tảng Tích hợp & Chia sẻ Dữ liệu cấp Bộ, Ngành và Địa phương
           </h2>
           <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
             Mọi hoạt động truy vấn, chia sẻ, đồng bộ dữ liệu giữa các cơ quan trong hệ thống chính trị bắt buộc phải qua 
-            <strong> Nền tảng chia sẻ, điều phối dữ liệu quốc gia (NDOP)</strong> do Trung tâm Dữ liệu quốc gia (C12 - Bộ Công an) vận hành. 
+            <strong> Nền tảng chia sẻ, điều phối dữ liệu quốc gia (NDOP)</strong> do Trung tâm Dữ liệu Quốc gia (C12 - Bộ Công an) vận hành. 
             Mỗi tỉnh, thành phố chỉ tổ chức <strong>01 Nền tảng tích hợp, chia sẻ dữ liệu cấp tỉnh (LDOP - kế thừa và nâng cấp từ LGSP)</strong> 
             làm đầu mối kỹ thuật duy nhất kết nối với NDOP qua <strong>Máy chủ bảo mật điểm kết nối (Agent Node)</strong>.
           </p>
@@ -53,7 +53,7 @@ export const IntegrationPlatformsSection: React.FC = () => {
           <div>
             <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <Layers className="w-5 h-5 text-amber-600" />
-              <span>Quy hoạch kho dữ liệu cấp Tỉnh (Phụ lục 2 Công văn 4856)</span>
+              <span>Quy hoạch Kho Dữ liệu cấp Tỉnh (Phụ lục 2 Công văn 4856)</span>
             </h3>
             <p className="text-xs text-slate-500 mt-0.5">
               Phân định rõ ràng 02 Phạm vi kho dữ liệu để tránh đầu tư trùng lặp, lãng phí ngân sách
@@ -146,7 +146,7 @@ export const IntegrationPlatformsSection: React.FC = () => {
               </span>
               <h4 className="text-xs font-bold text-slate-900">Kho IoT phát triển kinh tế (Kinh tế số)</h4>
               <p className="text-xs text-slate-700 leading-relaxed">
-                Tiếp nhận, lưu trữ và chia sẻ luồng dữ liệu thời gian thực (real-time) phục vụ phát triển kinh tế số, đóng vai trò là nguồn 
+                Tiếp nhận, lưu trữ và chia sẻ luồng dữ liệu thời gian thực phục vụ phát triển kinh tế số, đóng vai trò là nguồn 
                 <strong> Dữ liệu mở (Open Data)</strong> thúc đẩy khởi nghiệp và đổi mới sáng tạo.
               </p>
               <div className="bg-white p-3 rounded-lg border border-blue-200 text-xs text-slate-700 space-y-1">
@@ -163,7 +163,7 @@ export const IntegrationPlatformsSection: React.FC = () => {
       <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm space-y-4">
         <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
           <Workflow className="w-5 h-5 text-indigo-600" />
-          <span>03 loại yêu cầu kết nối, khai thác dữ liệu từ Trung tâm Dữ liệu quốc gia</span>
+          <span>03 loại yêu cầu kết nối, khai thác dữ liệu từ Trung tâm Dữ liệu Quốc gia</span>
         </h3>
         <p className="text-xs text-slate-500">
           Phân định thẩm quyền: Cơ quan chủ quản dữ liệu quyết định <em>nội dung</em> khai thác; TTDLQG thẩm định <em>điều kiện kỹ thuật, an ninh mạng</em> và tổ chức kết nối.
@@ -260,7 +260,7 @@ export const IntegrationPlatformsSection: React.FC = () => {
           <span>Quy trình kết nối đồng bộ dữ liệu 05 bước theo Nghị định 278 (Phụ lục 4)</span>
         </h3>
         <p className="text-xs text-slate-500 mb-6">
-          Quy trình chuẩn áp dụng cho tất cả các Bộ, cơ quan ngang Bộ và UBND cấp tỉnh khi kết nối đồng bộ dữ liệu về Trung tâm Dữ liệu quốc gia
+          Quy trình chuẩn áp dụng cho tất cả các Bộ, cơ quan ngang Bộ và UBND cấp tỉnh khi kết nối đồng bộ dữ liệu về Trung tâm Dữ liệu Quốc gia
         </p>
 
         {/* Step Tabs */}
@@ -295,7 +295,7 @@ export const IntegrationPlatformsSection: React.FC = () => {
             <div className="space-y-3">
               <h4 className="font-bold text-sm text-slate-900">Bước 1: Thống nhất nội dung, phạm vi đồng bộ dữ liệu</h4>
               <p className="text-slate-700 leading-relaxed">
-                Bộ/ngành/địa phương phối hợp với Trung tâm Dữ liệu quốc gia – Bộ Công an thống nhất:
+                Bộ/ngành/địa phương phối hợp với Trung tâm Dữ liệu Quốc gia – Bộ Công an thống nhất:
               </p>
               <ul className="list-disc list-inside space-y-1 text-slate-700">
                 <li>Danh mục dữ liệu đồng bộ, cấu trúc bản ghi, trường dữ liệu, kiểu dữ liệu theo QĐ 2439.</li>
@@ -332,7 +332,7 @@ export const IntegrationPlatformsSection: React.FC = () => {
                 <li><strong>C12 Bộ Công an</strong> triển khai, cài đặt máy chủ <strong>Agent Node</strong> tại hạ tầng của Bộ/ngành/tỉnh làm điểm kết nối trung gian bảo mật (đặt tại phân vùng DMZ).</li>
                 <li>Cấu hình dịch vụ dữ liệu đồng bộ, giao diện lập trình ứng dụng (API) trên NDOP và Agent Node.</li>
                 <li>Thiết lập xác thực, phân quyền RBAC, cấu hình chứng thư số và khóa bảo mật HSM.</li>
-                <li>Thiết lập cơ chế giám sát, ghi nhật ký (Audit Log) và cảnh báo tự động 24/7.</li>
+                <li>Thiết lập cơ chế giám sát, ghi nhật ký hệ thống (Audit Log) và cảnh báo tự động 24/7.</li>
               </ul>
             </div>
           )}

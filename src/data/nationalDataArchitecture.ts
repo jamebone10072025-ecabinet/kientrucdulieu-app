@@ -36,8 +36,8 @@ export const LEGAL_BASIS = [
   },
   {
     code: 'Nghị quyết 175/NQ-CP & Quyết định 11/2026/QĐ-TTg',
-    title: 'Đề án Trung tâm Dữ liệu quốc gia & Danh mục 20 CSDL quốc gia',
-    role: 'Quy hoạch cụm 03 Trung tâm Dữ liệu quốc gia (Active-Active-Standby) và danh mục CSDL trọng yếu.',
+    title: 'Đề án Trung tâm Dữ liệu Quốc gia & Danh mục 20 CSDL Quốc gia',
+    role: 'Quy hoạch Cụm 03 Trung tâm Dữ liệu Quốc gia (Active-Active-Standby) và danh mục CSDL trọng yếu.',
   },
 ];
 
@@ -74,7 +74,7 @@ export const GOVERNANCE_DEPARTMENTS: GovernanceDepartment[] = [
       'Điều phối mạng lưới Nhân sự phụ trách dữ liệu chuyên ngành (Data Steward) tại các cơ quan nghiệp vụ.',
       'Chủ trì xác định và quản lý Dữ liệu chủ chuyên ngành (Master Data) và các Phần tử dữ liệu trọng yếu (CDE).',
       'Xây dựng hệ thống chỉ số đánh giá hiệu quả (KPI), phương pháp đo lường Chỉ số chất lượng dữ liệu (DQI).',
-      'Đầu mối chính tiếp nhận, điều phối và xử lý các yêu cầu phối hợp giữa đơn vị với Trung tâm Dữ liệu quốc gia (TTDLQG).',
+      'Đầu mối chính tiếp nhận, điều phối và xử lý các yêu cầu phối hợp giữa đơn vị với Trung tâm Dữ liệu Quốc gia (TTDLQG).',
       'Hòa giải, xử lý các bất đồng về nghiệp vụ, thuật ngữ, cấu trúc dữ liệu giữa các bên.',
     ],
     responsibilitiesAtMinistry: 'Giao đơn vị phụ trách CNTT hoặc bộ phận chuyên trách Quản trị dữ liệu của Bộ.',
@@ -253,7 +253,7 @@ export const CORE_DATA_DOMAINS: DataDomain[] = [
     name: '2. Miền dữ liệu về Tổ chức',
     code: 'DOM-ORG',
     description: 'Chứa thông tin pháp lý về doanh nghiệp, hợp tác xã, cơ quan nhà nước, tổ chức sự nghiệp và đoàn thể.',
-    authority: 'Bộ Kế hoạch & Đầu tư / Bộ Tài chính / Bộ Nội vụ (Cấp tỉnh: Sở Kế hoạch & Đầu tư / Sở Tài chính)',
+    authority: 'Bộ Kế hoạch & Đầu tư / Bộ Tài chính / Bộ Nội vụ (Cấp tỉnh: Sở Tài chính)',
     sourceDb: 'CSDL Quốc gia về Đăng ký doanh nghiệp, CSDL Cán bộ công chức viên chức',
     identifierKey: 'Mã số doanh nghiệp / Mã số thuế / Mã định danh cơ quan nhà nước',
     sampleFields: [
@@ -262,7 +262,7 @@ export const CORE_DATA_DOMAINS: DataDomain[] = [
       { field: 'Nguoi_Dai_Dien_Phap_Luat', type: 'String(12)', description: 'Số ĐDCN của người đại diện pháp luật', required: true, technicalRule: 'Foreign Key -> DOM-HUMAN.So_Dinh_Danh' },
       { field: 'Trang_Thai_Hoat_Dong', type: 'String(50)', description: 'Tình trạng pháp lý hoạt động của doanh nghiệp', required: true, technicalRule: 'Dropdown API Master Data' },
     ],
-    purposeAtProvince: 'Cấp phép kinh doanh, quản lý đăng ký doanh nghiệp, hợp tác xã và xúc tiến đầu tư trên địa bàn tỉnh (do Sở Kế hoạch và Đầu tư chủ trì thực hiện).',
+    purposeAtProvince: 'Cấp phép kinh doanh, quản lý đăng ký doanh nghiệp, hợp tác xã và xúc tiến đầu tư trên địa bàn tỉnh (do Sở Tài chính chủ trì thực hiện theo mô hình chính quyền 02 cấp - Nghị định 45/2025/NĐ-CP).',
     accessMode: 'API/DaaS',
   },
   {
@@ -473,7 +473,7 @@ export const INITIAL_ISSUE_LOGS: IssueLogItem[] = [
     discoveredDate: '01/10/2026',
     errorType: 'Trùng lặp khóa định danh',
     severityLevel: 'Đỏ',
-    warningSource: 'Trung tâm Dữ liệu quốc gia (NDOP scan)',
+    warningSource: 'Trung tâm Dữ liệu Quốc gia (NDOP scan)',
     violatingField: 'Số Căn cước công dân (CCCD)',
     responsibleUnit: 'Phòng Cảnh sát QLHC về TTXH / Phòng Nghiệp vụ',
     slaDeadline: '05/10/2026 (SLA 5 ngày)',
@@ -488,7 +488,7 @@ export const INITIAL_ISSUE_LOGS: IssueLogItem[] = [
     severityLevel: 'Vàng',
     warningSource: 'Rà quét nội bộ (Data Profiling)',
     violatingField: 'Số điện thoại liên hệ đại diện pháp luật',
-    responsibleUnit: 'Bộ phận Một cửa - Sở Kế hoạch và Đầu tư',
+    responsibleUnit: 'Bộ phận Một cửa - Sở Tài chính',
     slaDeadline: '09/10/2026 (SLA 5 ngày)',
     status: 'Mới',
     actionTaken: 'Cấu hình lại phần mềm bắt buộc gán thuộc tính NOT NULL, thông báo 3 doanh nghiệp bổ sung số điện thoại.',
@@ -515,7 +515,7 @@ export const CHECKLIST_ITEMS = [
       { id: 'c1', text: '1. Cấu trúc cơ sở dữ liệu nguồn đã được ánh xạ khớp 100% với Từ điển dữ liệu dùng chung (QĐ 2439).' },
       { id: 'c2', text: '2. Các trường khóa chính (Primary Key), khóa ngoại (Foreign Key) không chứa giá trị rỗng (Null).' },
       { id: 'c3', text: '3. Đã thực hiện rà quét dữ liệu (Data Profiling) để loại bỏ ký tự không hợp lệ, định dạng ngày tháng sai chuẩn.' },
-      { id: 'c4', text: '4. Dữ liệu đã được đóng gói theo chuẩn API (JSON/XML) theo quy định kỹ thuật của Trung tâm Dữ liệu quốc gia.' },
+      { id: 'c4', text: '4. Dữ liệu đã được đóng gói theo chuẩn API (JSON/XML) theo quy định kỹ thuật của Trung tâm Dữ liệu Quốc gia.' },
     ],
   },
   {

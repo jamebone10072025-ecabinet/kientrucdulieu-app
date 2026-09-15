@@ -66,7 +66,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-lg sm:text-xl font-bold tracking-tight text-white leading-tight">
-                Khung Kiến trúc & Quản trị dữ liệu Quốc gia
+                Khung Kiến trúc & Quản trị Dữ liệu Quốc gia
               </h1>
               <span className="px-2 py-0.5 text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 rounded-full border border-emerald-500/30 hidden sm:inline-block">
                 Phiên bản 1.0 chuẩn hóa

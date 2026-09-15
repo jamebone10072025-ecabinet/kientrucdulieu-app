@@ -140,7 +140,7 @@ export const SecurityArchitectureSection: React.FC = () => {
             <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-200 text-blue-900">
               Lớp 1: Core – Backbone
             </span>
-            <h4 className="text-xs font-bold text-slate-900">Liên kết các Trung tâm Dữ liệu QG</h4>
+            <h4 className="text-xs font-bold text-slate-900">Liên kết các Trung tâm Dữ liệu Quốc gia</h4>
             <ul className="text-xs text-slate-700 space-y-1">
               <li>• Băng thông tối thiểu: <strong>400 Gbps</strong></li>
               <li>• Độ trễ mạng: <strong>dưới 10ms</strong></li>
@@ -180,7 +180,7 @@ export const SecurityArchitectureSection: React.FC = () => {
           <div>
             <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <Server className="w-5 h-5 text-emerald-600" />
-              <span>Quy hoạch cụm 03 Trung tâm Dữ liệu quốc gia (Nghị quyết 175/NQ-CP)</span>
+              <span>Quy hoạch Cụm 03 Trung tâm Dữ liệu Quốc gia (Nghị quyết 175/NQ-CP)</span>
             </h3>
             <p className="text-xs text-slate-500 mt-0.5">
               Mô hình kiến trúc Active - Active - Standby bảo đảm tính sẵn sàng cao và dự phòng thảm họa quốc gia
@@ -304,7 +304,7 @@ export const SecurityArchitectureSection: React.FC = () => {
       <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm space-y-4">
         <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
           <HardDrive className="w-5 h-5 text-indigo-600" />
-          <span>Bảng phân định trách nhiệm đầu tư giữa TTDLQG, Bộ/Ngành &amp; địa phương</span>
+          <span>Bảng Phân định Trách nhiệm Đầu tư giữa TTDLQG, Bộ/Ngành &amp; Địa phương</span>
         </h3>
 
         <div className="overflow-x-auto">
@@ -312,7 +312,7 @@ export const SecurityArchitectureSection: React.FC = () => {
             <thead className="bg-slate-100 text-slate-700 font-bold border-b border-slate-200">
               <tr>
                 <th className="p-3 w-44">Hạng mục</th>
-                <th className="p-3">Trung tâm Dữ liệu quốc gia (BCA)</th>
+                <th className="p-3">Trung tâm Dữ liệu Quốc gia (BCA)</th>
                 <th className="p-3">Đơn vị Bộ, ngành, địa phương</th>
                 <th className="p-3">Khối Đảng, Quốc hội, Tư pháp</th>
               </tr>
@@ -328,7 +328,7 @@ export const SecurityArchitectureSection: React.FC = () => {
                 <td className="p-3 font-bold text-slate-900">Hệ thống tính toán hiệu năng cao (HPC/AI)</td>
                 <td className="p-3 text-slate-700">Chủ trì đầu tư cụm máy chủ siêu tính toán, GPU, hạ tầng lượng tử và kho dữ liệu đào tạo AI quốc gia.</td>
                 <td className="p-3 text-slate-700">Chủ trì đầu tư mô hình AI chuyên ngành chạy trên hạ tầng TTDLQG đã cấp.</td>
-                <td className="p-3 text-slate-700">Chủ trì đầu tư mô hình chuyên thù chạy trên hạ tầng TTDLQG.</td>
+                <td className="p-3 text-slate-700">Chủ trì đầu tư mô hình đặc thù chạy trên hạ tầng TTDLQG.</td>
               </tr>
               <tr className="hover:bg-slate-50">
                 <td className="p-3 font-bold text-slate-900">Đô thị thông minh (Smart City / IOC)</td>

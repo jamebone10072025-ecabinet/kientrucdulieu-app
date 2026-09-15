@@ -39,12 +39,12 @@ export const OverviewSection: React.FC = () => {
             <span>Chỉ đạo thống nhất theo Công văn 4856/BCA-TTDLQG ngày 14/9/2026</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white leading-snug">
-            Khung Quản trị & Quản lý dữ liệu Quốc gia
+            Khung Quản trị & Quản lý Dữ liệu Quốc gia
           </h2>
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Thiết lập mô hình tổ chức, quản trị, quản lý dữ liệu xuyên suốt từ Trung tâm Dữ liệu quốc gia đến các Bộ, ngành và 
+            Thiết lập mô hình tổ chức, quản trị, quản lý dữ liệu xuyên suốt từ Trung tâm Dữ liệu Quốc gia đến các Bộ, ngành và 
             địa phương theo <strong>Quyết định 2439/QĐ-TTg</strong> và <strong>Nghị định 278/2025/NĐ-CP</strong>. Nguyên tắc cốt lõi: 
-            <strong> "Đúng, Đủ, Sạch, Sống, Thống nhất, Dùng chung"</strong>, kết nối qua Nền tảng chia sẻ, điều phối dữ liệu quốc gia (NDOP), 
+            <strong> "Đúng, Đủ, Sạch, Sống, Thống nhất, Dùng chung"</strong>, kết nối qua Nền tảng Chia sẻ, Điều phối Dữ liệu Quốc gia (NDOP), 
             không đầu tư phân tán, bảo đảm an ninh an toàn tuyệt đối.
           </p>
 

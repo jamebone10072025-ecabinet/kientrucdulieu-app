@@ -56,8 +56,8 @@ export interface DepartmentIntegrationStat {
 export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
   {
     id: 'sokhdt',
-    name: 'Sở Kế hoạch và Đầu tư (Sở KH&ĐT)',
-    shortName: 'Sở KH&ĐT',
+    name: 'Sở Tài chính (Đăng ký Doanh nghiệp & Đầu tư)',
+    shortName: 'Sở Tài chính (ĐKKD)',
     sector: 'economy',
     sectorLabel: 'Kinh tế & Đầu tư',
     allProvinces: { target: 63, completed: 54, testing: 6, pending: 2, blocked: 1 },
@@ -69,9 +69,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     primaryDomain: 'DOM-ORG (Miền Tổ chức)',
     ndopProtocol: 'REST API & Kafka Stream qua Agent Node',
     agentNodeStatus: 'active',
-    legalMandate: 'Quyết định 2439/QĐ-TTg & Luật Doanh nghiệp 2020',
-    responsibleLead: 'Sở KH&ĐT chủ trì kết nối CSDL Đăng ký doanh nghiệp, Hộ kinh doanh, Đầu tư',
-    highlightNote: 'Bảo lưu nguyên vẹn mã số doanh nghiệp lịch sử, tích hợp bảng ánh xạ khi sáp nhập đơn vị hành chính.',
+    legalMandate: 'Nghị định 45/2025/NĐ-CP, Quyết định 2439/QĐ-TTg & Luật Doanh nghiệp',
+    responsibleLead: 'Sở Tài chính (Bộ phận ĐKKD theo mô hình chính quyền 02 cấp) chủ trì CSDL Đăng ký doanh nghiệp, Hộ kinh doanh, Đầu tư',
+    highlightNote: 'Tiếp nhận toàn bộ chức năng kế hoạch, đầu tư và ĐKKD theo Nghị định 45/2025/NĐ-CP, bảo lưu mã số doanh nghiệp lịch sử và bảng ánh xạ ĐVHC.',
     sampleAPIs: [
       'GET /ndop/v1/org/business-registry/{taxCode}',
       'POST /ndop/v1/org/investment-projects/sync',
@@ -104,7 +104,7 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
   },
   {
     id: 'sotaichinh',
-    name: 'Sở Tài chính & Cục Thuế Tỉnh',
+    name: 'Sở Tài chính & Cục Thuế tỉnh',
     shortName: 'Sở Tài chính',
     sector: 'economy',
     sectorLabel: 'Kinh tế & Tài chính',
@@ -128,7 +128,7 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
   },
   {
     id: 'sotuphap',
-    name: 'Sở Tư pháp & Bộ phận Hộ tịch Cấp Xã',
+    name: 'Sở Tư pháp & Bộ phận Hộ tịch cấp xã',
     shortName: 'Sở Tư pháp',
     sector: 'internal_affairs',
     sectorLabel: 'Nội chính & Tư pháp',
@@ -143,7 +143,7 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     agentNodeStatus: 'active',
     legalMandate: 'Luật Hộ tịch & Nghị định 278/2025/NĐ-CP',
     responsibleLead: 'Sở Tư pháp quản lý phần mềm Đăng ký hộ tịch điện tử và Lý lịch tư pháp trực tuyến',
-    highlightNote: 'Tự động cấp Số ĐDCN khi đăng ký khai sinh trong 0.5s từ cấp xã lên CSDL Quốc gia.',
+    highlightNote: 'Tự động cấp Số ĐDCN khi đăng ký khai sinh trong 0,5 giây từ cấp xã lên CSDL Quốc gia.',
     sampleAPIs: [
       'POST /ndop/v1/vital/birth-registration/issue-id',
       'GET /ndop/v1/vital/marital-status/{citizenId}',
@@ -167,7 +167,7 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     agentNodeStatus: 'configuring',
     legalMandate: 'Luật Đất đai 2024 & Quyết định 2439/QĐ-TTg',
     responsibleLead: 'Sở TN&MT quản trị CSDL Đất đai (VBDLIS), bản đồ địa chính và thông tin thửa đất',
-    highlightNote: 'Đang chuẩn hóa khử trùng lặp dữ liệu thửa đất lịch sử và liên thông nghĩa vụ tài chính thuế đất.',
+    highlightNote: 'Đang chuẩn hóa, khử trùng lặp dữ liệu thửa đất lịch sử và liên thông nghĩa vụ tài chính đất đai với cơ quan Thuế.',
     sampleAPIs: [
       'GET /ndop/v1/land/cadastral-parcel/{parcelCode}',
       'POST /ndop/v1/land/tax-obligation/notify',
@@ -191,7 +191,7 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     agentNodeStatus: 'active',
     legalMandate: 'Quyết định 11/2026/QĐ-TTg & Đề án 06/CP',
     responsibleLead: 'Sở Y tế kết nối Hồ sơ sức khỏe điện tử (Sổ SKĐT VNeID), cấp phép hành nghề Y-Dược',
-    highlightNote: 'Khám chữa bệnh BHYT bằng CCCD và đồng bộ dữ liệu giấy chứng sinh, giấy báo tử điện tử.',
+    highlightNote: 'Khám chữa bệnh BHYT bằng thẻ Căn cước/CCCD và đồng bộ dữ liệu giấy chứng sinh, giấy báo tử điện tử.',
     sampleAPIs: [
       'POST /ndop/v1/health/ehr/sync-summary',
       'GET /ndop/v1/health/practitioner-license/{licenseId}',
@@ -215,7 +215,7 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     agentNodeStatus: 'active',
     legalMandate: 'Quyết định 2439/QĐ-TTg & Kế hoạch Chuyển đổi số Quốc gia',
     responsibleLead: 'Sở GD&ĐT quản trị CSDL Trường - Lớp - Học sinh, Học bạ số và Văn bằng chứng chỉ',
-    highlightNote: 'Xác thực văn bằng tốt nghiệp phục vụ nộp hồ sơ Một cửa không yêu cầu bản sao chứng thực.',
+    highlightNote: 'Xác thực văn bằng, chứng chỉ tốt nghiệp phục vụ tiếp nhận hồ sơ Một cửa, không yêu cầu nộp bản sao chứng thực.',
     sampleAPIs: [
       'GET /ndop/v1/edu/diploma-verification/{serialNumber}',
       'POST /ndop/v1/edu/digital-transcript/sync',
@@ -237,9 +237,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     primaryDomain: 'DOM-GEO & CSDL GTVT',
     ndopProtocol: 'REST API & Webhook Thông báo',
     agentNodeStatus: 'active',
-    legalMandate: 'Nghị định 278/2025/NĐ-CP & Luật Trật tự ATGT đường bộ',
-    responsibleLead: 'Quản lý CSDL Giấy phép lái xe, Đăng kiểm, Quy hoạch xây dựng đô thị',
-    highlightNote: 'Liên thông GPLX tích hợp trên ứng dụng VNeID và chia sẻ dữ liệu xử lý phạt nguội vi phạm.',
+    legalMandate: 'Nghị định 278/2025/NĐ-CP & Luật Trật tự, an toàn giao thông đường bộ 2024',
+    responsibleLead: 'Sở GTVT & Sở Xây dựng quản trị CSDL Giấy phép lái xe, Đăng kiểm phương tiện, Quy hoạch xây dựng đô thị',
+    highlightNote: 'Liên thông Giấy phép lái xe tích hợp trên ứng dụng VNeID và chia sẻ dữ liệu xử lý vi phạm giao thông ("phạt nguội").',
     sampleAPIs: [
       'GET /ndop/v1/transport/driver-license/{licenseNo}',
       'POST /ndop/v1/urban/planning-permit/sync',
@@ -262,8 +262,8 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     ndopProtocol: 'REST OpenAPI 3.0 & SAML 2.0 / OpenID Connect',
     agentNodeStatus: 'active',
     legalMandate: 'Nghị định 42/2022/NĐ-CP & Đề án 06/CP',
-    responsibleLead: 'Văn phòng UBND tỉnh điều phối số hóa hồ sơ TTHC và tái sử dụng kết quả giải quyết',
-    highlightNote: '100% thủ tục đủ điều kiện được tra cứu tự động qua NDOP, thực hiện triệt để nguyên tắc không nộp lại giấy tờ.',
+    responsibleLead: 'Văn phòng UBND tỉnh chỉ đạo, điều phối số hóa hồ sơ TTHC và tái sử dụng kết quả giải quyết',
+    highlightNote: '100% thủ tục đủ điều kiện được tra cứu tự động qua Trục NDOP, thực hiện triệt để nguyên tắc không yêu cầu nộp lại giấy tờ đã được số hóa.',
     sampleAPIs: [
       'POST /ndop/v1/public-service/dossier/submit',
       'GET /ndop/v1/public-service/e-result/{resultCode}',
@@ -272,7 +272,7 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
   },
   {
     id: 'bhxh_tinh',
-    name: 'Bảo hiểm Xã hội Tỉnh / Thành phố',
+    name: 'Bảo hiểm Xã hội Tỉnh / Thành phố (BHXH)',
     shortName: 'Bảo hiểm Xã hội',
     sector: 'social',
     sectorLabel: 'Xã hội & An sinh',
@@ -287,7 +287,7 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     agentNodeStatus: 'active',
     legalMandate: 'Quyết định 11/2026/QĐ-TTg & Luật BHXH',
     responsibleLead: 'BHXH tỉnh quản lý thông tin tham gia BHXH, BHYT, BHTN liên thông với Số ĐDCN',
-    highlightNote: '100% cơ sở khám chữa bệnh thực hiện tra cứu thẻ BHYT bằng thẻ CCCD hoặc VNeID.',
+    highlightNote: '100% cơ sở khám chữa bệnh thực hiện tra cứu thông tin thẻ BHYT bằng thẻ Căn cước/CCCD hoặc ứng dụng VNeID.',
     sampleAPIs: [
       'GET /ndop/v1/insurance/social-policy/{citizenId}',
       'POST /ndop/v1/insurance/health-claim/validate',
@@ -390,7 +390,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
       { label: 'Đã hoàn thành đồng bộ', value: totalCompleted, color: '#10b981' }, // Emerald
       { label: 'Đang kiểm thử DQI / Nghiệm thu', value: totalTesting, color: '#3b82f6' }, // Blue
       { label: 'Đang chuẩn bị hồ sơ / Chờ kết nối', value: totalPending, color: '#f59e0b' }, // Amber
-      { label: 'Tắc nghẽn / Cần xử lý pháp lý', value: totalBlocked, color: '#f43f5e' }, // Rose
+      { label: 'Vướng mắc kỹ thuật / Pháp lý', value: totalBlocked, color: '#f43f5e' }, // Rose
     ];
 
     const pie = d3
@@ -478,7 +478,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
       .attr('font-size', '11px')
       .attr('font-weight', '600')
       .attr('fill', '#64748b')
-      .text('HOÀN THÀNH NDOP');
+      .text('HOÀN TẤT KẾT NỐI');
 
     g.append('text')
       .attr('text-anchor', 'middle')
@@ -666,7 +666,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
               <div class="font-bold text-xs text-white pb-1 border-b border-slate-700">${dept.name}</div>
               <div class="pt-1.5 space-y-1 text-[11px] text-slate-200">
                 <div class="flex justify-between gap-3">
-                  <span class="text-emerald-400">Đã kết nối hoàn tất:</span>
+                  <span class="text-emerald-400">Đã hoàn thành kết nối:</span>
                   <span class="font-bold">${breakdown.completed} / ${breakdown.target} đơn vị</span>
                 </div>
                 <div class="flex justify-between gap-3">
@@ -679,7 +679,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                 </div>
                 ${breakdown.blocked > 0 ? `
                 <div class="flex justify-between gap-3">
-                  <span class="text-rose-400 font-semibold">Tắc nghẽn / Pháp lý:</span>
+                  <span class="text-rose-400 font-semibold">Vướng mắc / Cần tháo gỡ:</span>
                   <span class="font-bold text-rose-300">${breakdown.blocked} đơn vị</span>
                 </div>` : ''}
                 <div class="flex justify-between gap-3 pt-1 border-t border-slate-700 text-slate-300">
@@ -726,13 +726,13 @@ export const NationalIntegrationDashboard: React.FC = () => {
         <div className="space-y-1">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold">
             <BarChart3 className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Giám sát Tiến độ Tích hợp Dữ liệu Quốc gia (D3 Analytics Engine)</span>
+            <span>Giám sát Tiến độ Tích hợp Dữ liệu Quốc gia (Trực quan hóa D3 Engine)</span>
           </div>
           <h3 className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
-            Bảng Điều phối Tích hợp Hệ thống Sở Ngành qua NDOP
+            Bảng Điều phối Tích hợp Hệ thống Sở, Ngành qua Trục NDOP
           </h3>
           <p className="text-xs text-slate-500 max-w-3xl leading-relaxed">
-            Theo dõi trực quan tỷ lệ <strong>Hoàn thành (Completed)</strong> so với <strong>Đang chờ/Kiểm thử (Pending/Testing)</strong> của 10 nhóm hệ thống sở, ngành then chốt vào Cụm Trung tâm Dữ liệu quốc gia theo Nghị định 278/2025/NĐ-CP và Quyết định 2439/QĐ-TTg.
+            Theo dõi trực quan tỷ lệ <strong>Hoàn thành đồng bộ</strong> so với <strong>Đang kiểm thử / Chờ kết nối</strong> của 10 nhóm hệ thống sở, ngành then chốt vào Cụm Trung tâm Dữ liệu Quốc gia theo Nghị định số 278/2025/NĐ-CP và Quyết định số 2439/QĐ-TTg.
           </p>
         </div>
 
@@ -747,7 +747,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Toàn quốc (63)
+              Toàn quốc (63 tỉnh/thành)
             </button>
             <button
               onClick={() => setSelectedGroup('nhom1')}
@@ -757,7 +757,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Nhóm 1: 08 Đô thị hạt nhân
+              Nhóm 1: 08 Đô thị hạt nhân ưu tiên
             </button>
             <button
               onClick={() => setSelectedGroup('nhom2')}
@@ -767,7 +767,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Nhóm 2: 55 Tỉnh thành
+              Nhóm 2: 55 Tỉnh, thành phố còn lại
             </button>
           </div>
         </div>
@@ -777,14 +777,14 @@ export const NationalIntegrationDashboard: React.FC = () => {
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5">
         <div className="bg-emerald-50/70 border border-emerald-200 rounded-xl p-4 space-y-1">
           <div className="flex items-center justify-between text-xs text-emerald-800 font-semibold">
-            <span>Đã hoàn tất đồng bộ</span>
+            <span>Đã hoàn thành đồng bộ</span>
             <CheckCircle2 className="w-4 h-4 text-emerald-600" />
           </div>
           <div className="text-2xl font-black text-emerald-900">
             {totalCompleted} <span className="text-xs font-normal text-emerald-700">hệ thống</span>
           </div>
           <div className="text-[11px] text-emerald-700">
-            Chiếm <strong>{nationalCompletionRate}%</strong> trên {totalTarget} mục tiêu ({selectedGroup === 'all' ? 'Toàn quốc' : selectedGroup === 'nhom1' ? '8 Đô thị ưu tiên' : '55 Tỉnh thành'})
+            Chiếm <strong>{nationalCompletionRate}%</strong> trên tổng số {totalTarget} mục tiêu kết nối ({selectedGroup === 'all' ? 'Toàn quốc' : selectedGroup === 'nhom1' ? '08 Đô thị hạt nhân ưu tiên' : '55 Tỉnh, thành phố còn lại'})
           </div>
         </div>
 
@@ -797,7 +797,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
             {totalTesting} <span className="text-xs font-normal text-blue-700">hệ thống</span>
           </div>
           <div className="text-[11px] text-blue-700">
-            Chiếm <strong>{nationalTestingRate}%</strong> đang nghiệm thu kỹ thuật qua Agent Node
+            Chiếm <strong>{nationalTestingRate}%</strong> đang kiểm thử nghiệm thu kỹ thuật qua Agent Node
           </div>
         </div>
 
@@ -810,20 +810,20 @@ export const NationalIntegrationDashboard: React.FC = () => {
             {totalPending + totalBlocked} <span className="text-xs font-normal text-amber-700">hệ thống</span>
           </div>
           <div className="text-[11px] text-amber-700">
-            Gồm <strong>{totalPending}</strong> chờ kết nối, <strong>{totalBlocked}</strong> vướng mắc pháp lý
+            Gồm <strong>{totalPending}</strong> hệ thống chờ kết nối, <strong>{totalBlocked}</strong> hệ thống gặp vướng mắc kỹ thuật/pháp lý
           </div>
         </div>
 
         <div className="bg-slate-900 text-white rounded-xl p-4 space-y-1 border border-slate-800">
           <div className="flex items-center justify-between text-xs text-slate-300 font-semibold">
-            <span>Độ trễ Agent Node TB</span>
+            <span>Độ trễ Agent Node trung bình</span>
             <Cpu className="w-4 h-4 text-emerald-400" />
           </div>
           <div className="text-2xl font-black text-emerald-400">
             14.8 <span className="text-xs font-normal text-slate-300">ms</span>
           </div>
           <div className="text-[11px] text-slate-400">
-            Lưu lượng đồng bộ <strong>~52.4M</strong> transaction/ngày
+            Lưu lượng đồng bộ <strong>~52,4 triệu</strong> giao dịch/ngày
           </div>
         </div>
       </div>
@@ -835,9 +835,9 @@ export const NationalIntegrationDashboard: React.FC = () => {
           <div className="w-full text-left">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
               <PieChartIcon className="w-4 h-4 text-indigo-600" />
-              Tỷ trọng Trạng thái Tích hợp ({selectedGroup === 'all' ? 'Toàn quốc' : selectedGroup === 'nhom1' ? 'Nhóm 1 (8 TP)' : 'Nhóm 2 (55 Tỉnh)'})
+              Tỷ trọng Trạng thái Tích hợp ({selectedGroup === 'all' ? 'Toàn quốc' : selectedGroup === 'nhom1' ? 'Nhóm 1 (08 Đô thị)' : 'Nhóm 2 (55 Tỉnh, thành phố)'})
             </h4>
-            <p className="text-[11px] text-slate-500 mt-0.5">Biểu đồ Donut D3 phân bổ trên {totalTarget} điểm kết nối</p>
+            <p className="text-[11px] text-slate-500 mt-0.5">Biểu đồ hình vành khuyên (Donut Chart) phân bổ trên tổng số {totalTarget} điểm kết nối</p>
           </div>
 
           {/* D3 Donut SVG Container */}
@@ -874,7 +874,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
             <div className="flex items-center justify-between p-1.5 rounded hover:bg-white transition-colors">
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-rose-500 shrink-0" />
-                <span className="text-slate-700 font-medium">Tắc nghẽn / Cần xử lý</span>
+                <span className="text-slate-700 font-medium">Vướng mắc / Cần tháo gỡ</span>
               </div>
               <span className="font-bold text-slate-900">{totalBlocked} ({totalTarget > 0 ? (totalBlocked / totalTarget * 100).toFixed(1) : 0}%)</span>
             </div>
@@ -897,7 +897,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                     : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
-                Tất cả (10)
+                Tất cả (10 sở, ngành)
               </button>
               <button
                 onClick={() => setSelectedSector('economy')}
@@ -907,7 +907,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                     : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
-                Kinh tế (Sở KH&ĐT, TC)
+                Kinh tế (Sở Tài chính)
               </button>
               <button
                 onClick={() => setSelectedSector('internal_affairs')}
@@ -927,7 +927,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                     : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
-                Xã hội (Y tế, GD, BHXH)
+                Xã hội (Y tế, GD&ĐT, BHXH)
               </button>
               <button
                 onClick={() => setSelectedSector('infrastructure')}
@@ -937,7 +937,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                     : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                 }`}
               >
-                Đất đai - Kỹ thuật
+                Đất đai & Hạ tầng
               </button>
             </div>
 
@@ -946,7 +946,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                 <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   type="text"
-                  placeholder="Tìm sở ngành..."
+                  placeholder="Tìm kiếm sở, ngành..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="pl-8 pr-2.5 py-1 rounded-lg bg-white border border-slate-200 text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 w-32 sm:w-40"
@@ -967,7 +967,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
 
           {/* D3 Bar Chart Sub-header and Legend */}
           <div className="flex flex-wrap items-center justify-between text-[11px] text-slate-500">
-            <span>Tiến độ hoàn thành của từng Sở ngành trên địa bàn ({selectedGroup === 'all' ? '63 Tỉnh' : selectedGroup === 'nhom1' ? '08 Đô thị hạt nhân' : '55 Tỉnh'}):</span>
+            <span>Tiến độ hoàn thành của từng sở, ngành trên địa bàn ({selectedGroup === 'all' ? '63 Tỉnh, thành phố' : selectedGroup === 'nhom1' ? '08 Đô thị hạt nhân ưu tiên' : '55 Tỉnh, thành phố còn lại'}):</span>
             <div className="flex items-center gap-3">
               <span className="flex items-center gap-1">
                 <span className="w-2.5 h-2.5 rounded bg-emerald-500" /> Hoàn thành
@@ -979,7 +979,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                 <span className="w-2.5 h-2.5 rounded bg-amber-500" /> Chờ kết nối
               </span>
               <span className="flex items-center gap-1">
-                <span className="w-2.5 h-2.5 rounded bg-rose-500" /> Tắc nghẽn
+                <span className="w-2.5 h-2.5 rounded bg-rose-500" /> Vướng mắc
               </span>
             </div>
           </div>
@@ -990,7 +990,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
           </div>
 
           <p className="text-[11px] text-slate-400 italic">
-            * Mẹo: Nhấp vào bất kỳ thanh sở ngành nào trên biểu đồ để xem chi tiết thông số kết nối, thẩm quyền và cam kết SLA bên dưới.
+            * Gợi ý: Nhấp chọn bất kỳ thanh sở, ngành nào trên biểu đồ để xem chi tiết thông số kỹ thuật, căn cứ pháp lý và cam kết thời hạn hoàn thành bên dưới.
           </p>
         </div>
       </div>
@@ -1012,7 +1012,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
 
           <div className="flex items-center gap-3">
             <div className="px-3 py-2 rounded-lg bg-slate-800 border border-slate-700 text-right">
-              <div className="text-[10px] text-slate-400">Tiến độ phân nhóm hiện tại</div>
+              <div className="text-[10px] text-slate-400">Tiến độ theo nhóm địa bàn</div>
               <div className="text-base font-extrabold text-emerald-400">
                 {activeBreakdown.completed} / {activeBreakdown.target} địa bàn ({activeBreakdown.target > 0 ? (activeBreakdown.completed / activeBreakdown.target * 100).toFixed(0) : 0}%)
               </div>
@@ -1043,7 +1043,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
               <span className="text-slate-400">Trạng thái Agent Node:</span>
               <span className="font-bold text-emerald-400 flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                {activeDept.agentNodeStatus === 'active' ? 'Đã kích hoạt HSM C12' : 'Đang triển khai'}
+                {activeDept.agentNodeStatus === 'active' ? 'Đã kích hoạt khóa HSM C12' : 'Đang triển khai cấu hình'}
               </span>
             </div>
           </div>
@@ -1075,7 +1075,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
               {activeDept.highlightNote}
             </p>
             <div className="pt-1.5 border-t border-slate-700/80 space-y-1">
-              <span className="text-[10px] text-slate-400 font-mono block">Endpoints mẫu qua Trục NDOP:</span>
+              <span className="text-[10px] text-slate-400 font-mono block">Danh mục Endpoint API mẫu qua Trục NDOP:</span>
               {activeDept.sampleAPIs.map((api, idx) => (
                 <div key={idx} className="bg-slate-950/80 px-2 py-0.5 rounded text-[10.5px] font-mono text-emerald-300 truncate">
                   {api}

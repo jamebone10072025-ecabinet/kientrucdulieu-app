@@ -37,7 +37,7 @@ Bạn nắm vững các văn bản quy phạm pháp luật và tiêu chuẩn k�
 2. Công văn số 4856/BCA-TTDLQG ngày 14/9/2026 của Bộ Công an: Hướng dẫn khung quản trị, quản lý dữ liệu (Mô hình 05 bộ phận; 03 mô hình tổ chức tại tỉnh; Bộ phận Tuân thủ BẮT BUỘC do Công an tỉnh chủ trì và TUYỆT ĐỐI không thuê ngoài; CDO; Data Steward; Đầu mối cấp xã; Chỉ số DQI 5 tiêu chuẩn "Đúng, Đủ, Sạch, Sống, Thống nhất"; Ngưỡng DQI 100% tuyệt đối cho khóa định danh; SLA 5-10-15 ngày; 08 nhóm lỗi dữ liệu phổ biến).
 3. Nghị định số 278/2025/NĐ-CP: Quy định kết nối, chia sẻ dữ liệu qua Trục Nền tảng điều phối quốc gia (NDOP), Nền tảng chia sẻ dữ liệu cấp tỉnh (LDOP/LGSP), máy chủ bảo mật Agent Node do C12 Bộ Công an quản lý, 03 loại yêu cầu kết nối và Quy trình 05 bước kết nối đồng bộ.
 4. Nghị quyết số 175/NQ-CP: Cụm 03 Trung tâm Dữ liệu quốc gia (NDC 1, NDC 2, NDC 3) kiến trúc Active-Active-Standby.
-5. Vị trí, vai trò của Sở Kế hoạch và Đầu tư (KH&ĐT): Sở KH&ĐT vẫn duy trì hoạt động và chức năng độc lập, là cơ quan chuyên môn thuộc UBND cấp tỉnh chủ trì quản lý nhà nước về CSDL Đăng ký doanh nghiệp, CSDL Đăng ký hộ kinh doanh, CSDL Đầu tư kinh doanh trên địa bàn tỉnh; kết nối và đồng bộ trực tiếp với CSDL Quốc gia về Đăng ký doanh nghiệp và NDOP; phối hợp chặt chẽ với Sở Tài chính (quản lý ngân sách, tài chính công, thuế) và Cục Thuế. Khi sắp xếp địa giới hành chính, bảo lưu nguyên trạng mã định danh lịch sử, không sửa đổi hồi tố và thiết lập Bảng ánh xạ mã ĐVHC trước - sau sắp xếp.
+5. Vị trí, vai trò của Sở Tài chính theo mô hình chính quyền 02 cấp (Nghị định 45/2025/NĐ-CP): Theo mô hình chính quyền địa phương 02 cấp, Sở Kế hoạch và Đầu tư đã được hợp nhất vào Sở Tài chính để trở thành SỞ TÀI CHÍNH thống nhất cấp tỉnh. Sở Tài chính là cơ quan chuyên môn thuộc UBND cấp tỉnh chủ trì quản lý nhà nước về kế hoạch, đầu tư, ngân sách, tài sản công, đồng thời trực tiếp quản trị CSDL Đăng ký doanh nghiệp, CSDL Đăng ký hộ kinh doanh, CSDL Đầu tư kinh doanh trên địa bàn tỉnh; kết nối và đồng bộ trực tiếp với CSDL Quốc gia về Đăng ký doanh nghiệp và NDOP; phối hợp chặt chẽ với Cục Thuế. Khi sắp xếp địa giới hành chính theo mô hình 02 cấp, bảo lưu nguyên trạng mã định danh lịch sử, không sửa đổi hồi tố và thiết lập Bảng ánh xạ mã ĐVHC trước - sau sắp xếp.
 
 Hãy trả lời bằng tiếng Việt trang trọng, chuẩn xác theo ngôn ngữ hành chính - kỹ thuật, trích dẫn rõ điều khoản/phụ lục căn cứ pháp lý.`;
 
@@ -136,14 +136,14 @@ async function startServer() {
       const prompt = `Phân tích chuyên sâu sự cố chất lượng dữ liệu:
 - Phân loại lỗi: ${errorType || "Chưa xác định"}
 - Trường dữ liệu vi phạm: ${violatingField || "Chưa xác định"}
-- Bộ phận khắc phục: ${responsibleUnit || "Sở Kế hoạch và Đầu tư"}
+- Bộ phận khắc phục: ${responsibleUnit || "Sở Tài chính"}
 - Mô tả chi tiết: ${description || "Phát hiện lỗi không nhất quán dữ liệu"}
 
 Yêu cầu xuất kết quả theo cấu trúc:
 1. [Nguyên nhân gốc rễ (Root Cause)]: Xác định nguyên nhân nghiệp vụ hoặc lỗi kỹ thuật phần mềm Một cửa/chuyên ngành.
 2. [Căn cứ pháp lý & SLA]: Mức độ ưu tiên (Đỏ/Vàng/Xanh), thời hạn cam kết SLA xử lý theo Phụ lục 3 Công văn 4856.
 3. [Câu lệnh kỹ thuật kiểm tra (SQL Check Query)]: Viết câu lệnh SQL mẫu để Bộ phận Kỹ thuật dữ liệu rà quét phát hiện tất cả các bản ghi vi phạm tương tự.
-4. [Kịch bản xử lý tại gốc]: Các bước cụ thể cho đơn vị chịu trách nhiệm (ví dụ: Sở Kế hoạch và Đầu tư, Sở Tài chính, Phòng Cảnh sát QLHC, Sở Tư pháp) và cơ chế bảo toàn dữ liệu lịch sử.`;
+4. [Kịch bản xử lý tại gốc]: Các bước cụ thể cho đơn vị chịu trách nhiệm (ví dụ: Sở Tài chính, Phòng Cảnh sát QLHC, Sở Tư pháp) và cơ chế bảo toàn dữ liệu lịch sử.`;
 
       const result = await generateWithFallback({
         contents: [{ parts: [{ text: prompt }] }],

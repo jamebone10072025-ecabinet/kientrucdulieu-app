@@ -62,20 +62,20 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
   const nodes: Record<string, ArchitectureNode> = {
     dept_sokhdt: {
       id: 'dept_sokhdt',
-      name: 'Sở Kế hoạch và Đầu tư (Sở KH&ĐT)',
-      shortCode: 'SỞ KH&ĐT',
+      name: 'Sở Tài chính (Bộ phận Đăng ký DN & Đầu tư)',
+      shortCode: 'SỞ TÀI CHÍNH',
       zone: 'local',
-      authority: 'Sở Kế hoạch và Đầu tư tỉnh',
+      authority: 'Sở Tài chính tỉnh (tiếp nhận chức năng Kế hoạch & Đầu tư theo NĐ 45/2025/NĐ-CP)',
       icon: Building2,
       techStack: ['CSDL Đăng ký DN', 'PostgreSQL / Oracle', 'REST API', 'Định dạng JSON chuẩn QĐ 2439'],
       securityLevel: 'Cấp độ 2 - 3 (Nghị định 85/2016/NĐ-CP)',
-      roleDescription: 'Chủ trì quản lý nhà nước về CSDL Doanh nghiệp, Hộ kinh doanh, Hợp tác xã và CSDL Dự án đầu tư trên địa bàn tỉnh; tiếp nhận và phê duyệt hồ sơ ĐKKD.',
-      legalBasis: 'Quyết định 2439/QĐ-TTg (Miền DOM-ORG) & Luật Doanh nghiệp',
+      roleDescription: 'Sở Tài chính (tiếp nhận toàn bộ chức năng của Sở Kế hoạch và Đầu tư theo mô hình chính quyền 02 cấp) chủ trì quản lý nhà nước về CSDL Doanh nghiệp, Hộ kinh doanh, Hợp tác xã và CSDL Dự án đầu tư trên địa bàn tỉnh; tiếp nhận và phê duyệt hồ sơ ĐKKD.',
+      legalBasis: 'Nghị định 45/2025/NĐ-CP & Quyết định 2439/QĐ-TTg (Miền DOM-ORG)',
       keyFunctions: [
         'Cấp mới, thay đổi đăng ký kinh doanh và giấy chứng nhận đầu tư',
         'Quản lý dữ liệu người đại diện pháp luật (liên kết CCCD)',
         'Đồng bộ tức thời dữ liệu doanh nghiệp mới lên CSDL quốc gia',
-        'Phối hợp với Sở Tài chính và Cục Thuế chia sẻ thông tin doanh nghiệp',
+        'Tích hợp liền khối thông tin doanh nghiệp, thuế và tài chính công địa phương',
       ],
     },
     dept_sotc: {
@@ -170,7 +170,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
       name: 'Máy chủ Bảo mật Điểm kết nối (Agent Node)',
       shortCode: 'AGENT NODE (C12)',
       zone: 'dmz',
-      authority: 'Trung tâm Dữ liệu quốc gia (C12 - Bộ Công an)',
+      authority: 'Trung tâm Dữ liệu Quốc gia (C12 - Bộ Công an)',
       icon: Lock,
       techStack: ['Hardware Security Module (HSM)', 'Dedicated Linux Hardened Appliance', 'Mutual TLS (mTLS) 1.3', 'Chữ ký số C12'],
       securityLevel: 'Cấp độ 4 - 5 (Bảo mật tối mật cấp quốc gia)',
@@ -180,7 +180,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
         'Mã hóa toàn bộ lưu lượng dữ liệu trước khi phát lên kênh truyền TSLCD',
         'Xác thực tính toàn vẹn và chống giả mạo gói tin bằng khóa HSM',
         'Bộ lọc tường lửa ứng dụng chuyên biệt, ngăn chặn rò rỉ dữ liệu và tấn công trung gian',
-        'Ghi log bảo mật và truyền telemetry thời gian thực về Trung tâm SOC C12',
+        'Ghi nhật ký bảo mật và truyền dữ liệu giám sát thời gian thực về Trung tâm SOC C12',
       ],
     },
     tslcd_network: {
@@ -192,7 +192,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
       icon: Radio,
       techStack: ['Cáp quang chuyên dùng độc lập', 'Băng thông ≥ 10 Gbps', 'Mã hóa đường truyền IPsec / MACsec', 'SLA 99.99%'],
       securityLevel: 'Hạ tầng mạng truyền dẫn dùng riêng cho cơ quan Đảng, Nhà nước',
-      roleDescription: 'Hạ tầng đường truyền vật lý độc lập kết nối từ Agent Node tại tỉnh về Cụm Trung tâm Dữ liệu quốc gia, cách ly hoàn toàn với Internet công cộng.',
+      roleDescription: 'Hạ tầng đường truyền vật lý độc lập kết nối từ Agent Node tại tỉnh về Cụm Trung tâm Dữ liệu Quốc gia, cách ly hoàn toàn với Internet công cộng.',
       legalBasis: 'Quyết định 08/2023/QĐ-TTg & Nghị định 278/2025/NĐ-CP',
       keyFunctions: [
         'Bảo đảm độ trễ cực thấp (<15ms) và băng thông cao liên tục',
@@ -205,17 +205,17 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
       name: 'Nền tảng Chia sẻ, Điều phối Dữ liệu Quốc gia (NDOP)',
       shortCode: 'TRỤC NDOP QUỐC GIA',
       zone: 'national_ndop',
-      authority: 'Trung tâm Dữ liệu quốc gia (C12 - Bộ Công an)',
+      authority: 'Trung tâm Dữ liệu Quốc gia (C12 - Bộ Công an)',
       icon: Network,
       techStack: ['Quốc gia High-Throughput Service Mesh', 'Central API Gateway', 'Enterprise Kafka Cluster', 'Dynamic RBAC Router'],
       securityLevel: 'Cấp độ 5 (Hạ tầng thông tin trọng yếu quốc gia)',
       roleDescription: 'Trục điều phối dữ liệu tối cao của đất nước, kết nối tất cả các Bộ, ban, ngành, 63 tỉnh/thành phố và các tổ chức chính trị - xã hội. Kiểm soát toàn bộ giao dịch, chia sẻ 03 loại yêu cầu kết nối theo Nghị định 278.',
       legalBasis: 'Nghị định 278/2025/NĐ-CP & Quyết định 2439/QĐ-TTg',
       keyFunctions: [
-        'Điều phối lưu lượng truy vấn, xử lý hàng triệu transaction/giây',
+        'Điều phối lưu lượng truy vấn, xử lý hàng triệu giao dịch/giây',
         'Thực thi chính sách phân quyền tập trung (Data Policy & Access Rights)',
         'Xử lý 03 loại yêu cầu (Khai thác tự động, Theo yêu cầu, Khai thác đặc biệt AI)',
-        'Lưu vết Audit Log toàn quốc phục vụ thanh tra, giám sát tuân thủ',
+        'Lưu vết nhật ký hệ thống (Audit Log) toàn quốc phục vụ thanh tra, giám sát tuân thủ',
       ],
     },
     ndc: {
@@ -241,14 +241,14 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
   const scenarioData: Record<FlowScenarioId, { title: string; subtitle: string; steps: FlowStep[] }> = {
     overview: {
       title: 'Toàn cảnh Luồng Dữ liệu Đa tầng (End-to-End Multi-Tier)',
-      subtitle: 'Mô hình liên thông 5 tầng từ hệ thống các Sở, ngành địa phương đến Trung tâm Dữ liệu quốc gia theo Nghị định 278/2025/NĐ-CP',
+      subtitle: 'Mô hình liên thông 5 tầng từ hệ thống các Sở, ngành địa phương đến Trung tâm Dữ liệu Quốc gia theo Nghị định 278/2025/NĐ-CP',
       steps: [
         {
           stepNumber: 1,
           fromNode: 'dept_sokhdt',
           toNode: 'ldop',
           actionTitle: '1. Khởi tạo & Đẩy dữ liệu Sở ngành',
-          description: 'Sở KH&ĐT (hoặc Sở Tài chính, Tư pháp) đẩy bản ghi đăng ký doanh nghiệp mới qua API nội bộ tỉnh.',
+          description: 'Sở Tài chính (hoặc Sở Tư pháp) đẩy bản ghi đăng ký doanh nghiệp mới qua API nội bộ tỉnh.',
           protocol: 'REST API / JSON (mTLS nội bộ tỉnh)',
           securityNote: 'Mã hóa nội bộ, xác thực tài khoản dịch vụ API key Sở ngành',
           latencyEstimate: '< 20 ms',
@@ -278,7 +278,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
           fromNode: 'agent_node',
           toNode: 'ndop',
           actionTitle: '4. Ký số HSM & Truyền tải TSLCD',
-          description: 'Agent Node áp dụng chữ ký số phần cứng HSM C12, mã hóa gói tin và truyền qua Mạng truyền số liệu chuyên dùng (TSLCD) ≥10Gbps về Trục NDOP quốc gia.',
+          description: 'Agent Node áp dụng chữ ký số phần cứng HSM C12, mã hóa gói tin và truyền qua Mạng truyền số liệu chuyên dùng (TSLCD) ≥10Gbps về Trục NDOP Quốc gia.',
           protocol: 'Chuyên dụng bảo mật C12 qua mạng TSLCD riêng',
           securityNote: 'Mã hóa đường truyền IPsec kênh riêng, hoàn toàn cách ly Internet',
           latencyEstimate: '< 10 ms',
@@ -288,25 +288,25 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
           fromNode: 'ndop',
           toNode: 'ndc',
           actionTitle: '5. Phân luồng & Cập nhật CSDL Quốc gia',
-          description: 'NDOP xác thực phiên, đối chiếu phân quyền RBAC và nạp dữ liệu vào Cụm 03 Trung tâm Dữ liệu quốc gia (NDC 1, 2, 3) kiến trúc Active-Active.',
+          description: 'NDOP xác thực phiên, đối chiếu phân quyền RBAC và nạp dữ liệu vào Cụm 03 Trung tâm Dữ liệu Quốc gia (NDC 1, 2, 3) kiến trúc Active-Active.',
           protocol: 'Internal High-Speed Bus (NDC Cluster)',
-          securityNote: 'Ghi Audit Log trọn đời, đồng bộ đa vùng thời gian thực',
+          securityNote: 'Ghi nhật ký hệ thống (Audit Log) trọn đời, đồng bộ đa vùng thời gian thực',
           latencyEstimate: '< 30 ms',
         },
       ],
     },
     sync_push: {
       title: 'Kịch bản 1: Đồng bộ dữ liệu Doanh nghiệp / Hộ tịch lên CSDL Quốc gia (Push Sync)',
-      subtitle: 'Quy trình đẩy dữ liệu mới phát sinh tại địa phương (Sở KH&ĐT, Sở Tư pháp) lên CSDL Quốc gia theo Phụ lục 4 CV 4856',
+      subtitle: 'Quy trình đẩy dữ liệu mới phát sinh tại địa phương (Sở Tài chính, Sở Tư pháp) lên CSDL Quốc gia theo Phụ lục 4 CV 4856',
       steps: [
         {
           stepNumber: 1,
           fromNode: 'dept_sokhdt',
           toNode: 'ldop',
           actionTitle: '1. Tiếp nhận hồ sơ ĐKKD hợp lệ',
-          description: 'Cán bộ Sở KH&ĐT phê duyệt Giấy chứng nhận đăng ký doanh nghiệp trên phần mềm Một cửa chuyên ngành.',
+          description: 'Cán bộ Sở Tài chính (Bộ phận Đăng ký DN) phê duyệt Giấy chứng nhận đăng ký doanh nghiệp trên phần mềm Một cửa chuyên ngành.',
           protocol: 'POST /api/v1/enterprises/register',
-          securityNote: 'Ký số cá nhân/cơ quan của Sở KH&ĐT trên văn bản điện tử',
+          securityNote: 'Ký số cá nhân/cơ quan của Sở Tài chính trên văn bản điện tử',
           latencyEstimate: '< 25 ms',
         },
         {
@@ -334,7 +334,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
           fromNode: 'agent_node',
           toNode: 'ndop',
           actionTitle: '4. Đẩy gói tin qua kênh TSLCD về NDOP',
-          description: 'Agent Node ký số HSM, truyền qua mạng cáp quang chuyên dùng TSLCD về cụm máy chủ NDOP tại Trung tâm Dữ liệu quốc gia.',
+          description: 'Agent Node ký số HSM, truyền qua mạng cáp quang chuyên dùng TSLCD về cụm máy chủ NDOP tại Trung tâm Dữ liệu Quốc gia.',
           protocol: 'Encrypted Tunnel (IPsec / Dedicated Leased Line)',
           securityNote: 'Kiểm tra chống phát lại (Anti-Replay Attack)',
           latencyEstimate: '< 12 ms',
@@ -344,7 +344,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
           fromNode: 'ndop',
           toNode: 'ndc',
           actionTitle: '5. Cập nhật CSDL Quốc gia về Đăng ký Doanh nghiệp',
-          description: 'NDOP nạp bản ghi vào CSDL Quốc gia, phát sinh thông báo thành công (ACK) gửi ngược về Sở KH&ĐT tỉnh.',
+          description: 'NDOP nạp bản ghi vào CSDL Quốc gia, phát sinh thông báo thành công (ACK) gửi ngược về Sở Tài chính tỉnh.',
           protocol: 'Distributed ACID Transaction Commit',
           securityNote: 'Lưu trữ bất biến, phân quyền các Bộ/ngành khác khai thác',
           latencyEstimate: '< 35 ms',
@@ -402,7 +402,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
           actionTitle: '5. Trả kết quả về giao diện Một cửa (< 0.2s)',
           description: 'Dữ liệu xác thực đi ngược qua NDOP -> Agent Node -> LDOP hiển thị trực tiếp lên màn hình Một cửa; cán bộ bấm duyệt ngay không cần giấy tờ giấy.',
           protocol: 'Secure JSON Response Payload',
-          securityNote: 'Ghi log giao dịch: Cán bộ nào tra cứu, mục đích gì, thời gian nào',
+          securityNote: 'Ghi nhật ký giao dịch: Cán bộ nào tra cứu, mục đích gì, thời gian nào',
           latencyEstimate: '< 40 ms',
         },
       ],
@@ -642,7 +642,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
             </div>
 
             <div className="space-y-2">
-              {/* Node: Sở KH&ĐT */}
+              {/* Node: Sở Tài chính (Đăng ký DN & Đầu tư) */}
               <button
                 type="button"
                 onClick={() => setSelectedNodeId('dept_sokhdt')}
@@ -657,7 +657,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1.5 font-bold text-xs text-slate-900">
                     <Building2 className="w-3.5 h-3.5 text-amber-600" />
-                    <span>Sở Kế hoạch &amp; Đầu tư</span>
+                    <span>Sở Tài chính (Đăng ký DN)</span>
                   </div>
                   {isNodeActiveInStep('dept_sokhdt') && (
                     <span className="w-2 h-2 rounded-full bg-indigo-600 animate-ping" />
@@ -935,7 +935,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
             </div>
 
             <div className="text-[10px] text-emerald-900/90 bg-emerald-100/80 p-2 rounded text-center font-mono">
-              Audit Log Bất Biến • Cân Bằng Tải Quốc Gia
+              Nhật Ký Bất Biến (Audit Log) • Cân Bằng Tải Quốc Gia
             </div>
           </div>
         </div>

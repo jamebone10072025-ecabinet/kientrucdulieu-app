@@ -58,7 +58,7 @@ const FAQS: FaqItem[] = [
   {
     question: 'Hệ thống Trung tâm điều hành thông minh (IOC) cấp tỉnh triển khai theo kiến trúc mới như thế nào?',
     category: 'Kết nối NDOP',
-    answer: 'Hệ thống IOC mới khác hoàn toàn mô hình trước đây: Thay vì mỗi tỉnh đầu tư phòng máy Data Center riêng, toàn bộ "não bộ" của hệ thống IOC chạy trên Nền tảng điện toán đám mây của Trung tâm Dữ liệu quốc gia; địa phương chỉ quản lý các thiết bị cảm biến và cơ cấu chấp hành (sensors & actuators) tại hiện trường và kết nối qua mạng TSLCD.',
+    answer: 'Hệ thống IOC mới khác hoàn toàn mô hình trước đây: Thay vì mỗi tỉnh đầu tư phòng máy Data Center riêng, toàn bộ "não bộ" của hệ thống IOC chạy trên Nền tảng điện toán đám mây của Trung tâm Dữ liệu Quốc gia; địa phương chỉ quản lý các thiết bị cảm biến và cơ cấu chấp hành (sensors & actuators) tại hiện trường và kết nối qua mạng TSLCD.',
     citation: 'Phụ lục 5 Mục D.II',
   },
   {
@@ -68,21 +68,21 @@ const FAQS: FaqItem[] = [
     citation: 'Phụ lục 3 Mục IV.3',
   },
   {
-    question: 'Sở Kế hoạch và Đầu tư (Sở KH&ĐT) đóng vai trò gì trong quản trị dữ liệu Doanh nghiệp và Đầu tư tại địa phương?',
+    question: 'Theo mô hình chính quyền 02 cấp (Nghị định 45/2025/NĐ-CP), cơ quan nào quản lý nhà nước về Đăng ký doanh nghiệp và Đầu tư tại địa phương?',
     category: 'Định danh dữ liệu',
-    answer: 'Sở Kế hoạch và Đầu tư duy trì hoạt động độc lập, là cơ quan chuyên môn thuộc UBND cấp tỉnh chủ trì quản lý nhà nước về CSDL Đăng ký doanh nghiệp, hợp tác xã và CSDL dự án đầu tư: (1) Quản trị và chịu trách nhiệm trực tiếp về tính "Đúng, Đủ, Sạch, Sống, Thống nhất" của Miền dữ liệu Tổ chức (DOM-ORG) cấp địa phương; (2) Giữ nguyên vẹn mã số doanh nghiệp (10-13 số) làm khóa định danh duy nhất (ngưỡng DQI 100%); (3) Phối hợp với Sở Tài chính (quản lý ngân sách, thuế, tài sản công) và Cục Thuế đồng bộ dữ liệu doanh nghiệp và nghĩa vụ thuế qua NDOP/LGSP; (4) Tuân thủ nguyên tắc bảo toàn dữ liệu lịch sử, không sửa đổi hồi tố và lập Bảng ánh xạ mã ĐVHC khi có sắp xếp địa giới hành chính.',
-    citation: 'Phụ lục 3 Mục II.1.f & Quyết định 2439/QĐ-TTg',
+    answer: 'Theo mô hình chính quyền địa phương 02 cấp và quy định tại Nghị định số 45/2025/NĐ-CP, Sở Kế hoạch và Đầu tư đã được hợp nhất với Sở Tài chính để trở thành SỞ TÀI CHÍNH thống nhất cấp tỉnh. Sở Tài chính tiếp nhận toàn bộ chức năng, nhiệm vụ quản lý nhà nước về kế hoạch, đầu tư, phát triển doanh nghiệp và đăng ký kinh doanh: (1) Quản trị và chịu trách nhiệm trực tiếp về tính "Đúng, Đủ, Sạch, Sống, Thống nhất" của Miền dữ liệu Tổ chức (DOM-ORG) cấp địa phương; (2) Giữ nguyên vẹn mã số doanh nghiệp (10-13 số) làm khóa định danh duy nhất (ngưỡng DQI 100%); (3) Tích hợp liền mạch cơ sở dữ liệu đăng ký doanh nghiệp với dữ liệu ngân sách, thuế và tài sản công; đồng bộ trực tiếp qua NDOP/LDOP lên CSDL Quốc gia về Đăng ký doanh nghiệp; (4) Tuân thủ nguyên tắc bảo toàn dữ liệu lịch sử, không sửa đổi hồi tố và lập Bảng ánh xạ mã ĐVHC khi có sắp xếp địa giới hành chính theo chính quyền 02 cấp.',
+    citation: 'Nghị định 45/2025/NĐ-CP, Phụ lục 3 Mục II.1.f & Quyết định 2439/QĐ-TTg',
   },
   {
     question: 'Máy chủ Agent Node được đặt ở đâu và ai chịu trách nhiệm an ninh mạng?',
     category: 'An ninh bảo mật',
-    answer: 'Agent Node được triển khai tập trung tại 01 đầu mối duy nhất của Bộ/Tỉnh, đặt tại vùng mạng biên (DMZ), cách ly độc lập vật lý với mạng nội bộ. Trung tâm Dữ liệu quốc gia (C12 Bộ Công an) trực tiếp cấp hạ tầng máy chủ, cài đặt phần mềm và giám sát an ninh mạng 24/7. Địa phương phối hợp phân vùng mạng và bảo đảm an toàn thông tin cấp độ.',
+    answer: 'Agent Node được triển khai tập trung tại 01 đầu mối duy nhất của Bộ/Tỉnh, đặt tại vùng mạng biên (DMZ), cách ly độc lập vật lý với mạng nội bộ. Trung tâm Dữ liệu Quốc gia (C12 Bộ Công an) trực tiếp cấp hạ tầng máy chủ, cài đặt phần mềm và giám sát an ninh mạng 24/7. Địa phương phối hợp phân vùng mạng và bảo đảm an toàn thông tin cấp độ.',
     citation: 'Phụ lục 4 Mục C & Phụ lục 5 Mục F',
   },
 ];
 
 const SUGGESTED_QUESTIONS = [
-  'Vai trò của Sở KH&ĐT trong quản trị CSDL Doanh nghiệp & Đầu tư theo QĐ 2439?',
+  'Vai trò của Sở Tài chính trong quản trị CSDL Doanh nghiệp & Đầu tư theo mô hình chính quyền 02 cấp?',
   'Ngưỡng DQI 100% đối với CCCD và Mã số doanh nghiệp quy định xử lý ra sao khi phát hiện lỗi?',
   'Khung cam kết thời hạn SLA xử lý sự cố dữ liệu 5-10-15 ngày áp dụng cho ai?',
   'Quy trình 05 bước kết nối, tích hợp dữ liệu từ Kho dữ liệu tỉnh lên NDOP?',
@@ -98,7 +98,7 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'model',
-      text: 'Xin chào đồng chí! Tôi là Trợ lý AI Cấp cao về Khung Kiến trúc & Quản trị dữ liệu Quốc gia (Google Gemini 3.8 Flash).\n\nTôi sẵn sàng hỗ trợ giải đáp mọi nghiệp vụ, quy chuẩn kỹ thuật theo Quyết định 2439/QĐ-TTg, Công văn 4856/BCA-TTDLQG, Nghị định 278/2025/NĐ-CP, cũng như hướng dẫn quản trị CSDL chuyên ngành của Sở KH&ĐT, Sở Tài chính, Công an tỉnh, Sở Tư pháp... Đồng chí cần tra cứu nội dung gì?',
+      text: 'Xin chào đồng chí! Tôi là Trợ lý AI Cấp cao về Khung Kiến trúc & Quản trị Dữ liệu Quốc gia (Google Gemini 3.8 Flash).\n\nTôi sẵn sàng hỗ trợ giải đáp mọi nghiệp vụ, quy chuẩn kỹ thuật theo Quyết định 2439/QĐ-TTg, Công văn 4856/BCA-TTDLQG, Nghị định 278/2025/NĐ-CP, Nghị định 45/2025/NĐ-CP về mô hình chính quyền 02 cấp, cũng như hướng dẫn quản trị CSDL chuyên ngành của Sở Tài chính, Công an tỉnh, Sở Tư pháp... Đồng chí cần tra cứu nội dung gì?',
       time: 'Vừa xong',
     },
   ]);
@@ -368,7 +368,7 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
               >
                 <input
                   type="text"
-                  placeholder="Nhập câu hỏi nghiệp vụ (ví dụ: Trách nhiệm quản trị CSDL của Sở KH&ĐT, kiểm tra DQI, phân vùng Agent Node...)"
+                  placeholder="Nhập câu hỏi nghiệp vụ (ví dụ: Trách nhiệm quản trị CSDL Doanh nghiệp của Sở Tài chính, kiểm tra DQI, phân vùng Agent Node...)"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   disabled={isLoading}
@@ -413,7 +413,7 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
                 <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
                 <input
                   type="text"
-                  placeholder="Tìm kiếm câu hỏi tình huống (ví dụ: Sở KH&ĐT, Agent Node, IOC, SLA, kiêm nhiệm, Sở Tài chính...)"
+                  placeholder="Tìm kiếm câu hỏi tình huống (ví dụ: Sở Tài chính, Agent Node, IOC, SLA, kiêm nhiệm, chính quyền 02 cấp...)"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   className="w-full pl-9 pr-3 py-2 bg-white border border-slate-300 rounded-lg text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-500"
@@ -497,7 +497,7 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
                 </h4>
               </div>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Nhập tên bảng và danh sách cột của hệ thống nghiệp vụ tại tỉnh/thành phố (ví dụ: phần mềm Đăng ký kinh doanh của Sở Kế hoạch và Đầu tư, Hộ tịch của Sở Tư pháp). Mô hình Gemini sẽ tự động đối chiếu, chỉ định khóa chính, khóa ngoại liên kết quốc gia và quy tắc DQI cần thiết.
+                Nhập tên bảng và danh sách cột của hệ thống nghiệp vụ tại tỉnh/thành phố (ví dụ: phần mềm Đăng ký kinh doanh của Sở Tài chính, Hộ tịch của Sở Tư pháp). Mô hình Gemini sẽ tự động đối chiếu, chỉ định khóa chính, khóa ngoại liên kết quốc gia và quy tắc DQI cần thiết.
               </p>
 
               <div className="flex flex-wrap gap-2 pt-1 text-xs">
@@ -505,12 +505,12 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
                 <button
                   type="button"
                   onClick={() => {
-                    setSchemaTable('dn_dangky_kinhdoanh_sokhdt');
+                    setSchemaTable('dn_dangky_kinhdoanh_sotaichinh');
                     setSchemaColumns('ma_so_dn (text), ten_doanh_nghiep (text), cccd_nguoidaidien (text), ngay_thanhlap (date), diachi_tru_so (text), von_dieule (numeric), nganh_nghe_chinh (text), trangthai (text)');
                   }}
                   className="px-2.5 py-1 rounded bg-slate-100 hover:bg-indigo-50 hover:text-indigo-700 text-slate-700 text-[11px] border border-slate-200"
                 >
-                  Sở KH&ĐT (Đăng ký kinh doanh & Doanh nghiệp)
+                  Sở Tài chính (Đăng ký kinh doanh &amp; Doanh nghiệp)
                 </button>
                 <button
                   type="button"
