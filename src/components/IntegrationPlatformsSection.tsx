@@ -16,6 +16,7 @@ import {
   Lock,
   GitMerge
 } from 'lucide-react';
+import { DataFlowArchitectureDiagram } from './DataFlowArchitectureDiagram';
 
 export const IntegrationPlatformsSection: React.FC = () => {
   const [activeScopeTab, setActiveScopeTab] = useState<'scope1' | 'scope2'>('scope1');
@@ -43,75 +44,8 @@ export const IntegrationPlatformsSection: React.FC = () => {
         </div>
       </div>
 
-      {/* Sơ đồ trực quan kết nối NDOP - LDOP - Agent Node */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
-        <h3 className="text-base font-bold text-slate-900 flex items-center gap-2 mb-4">
-          <GitMerge className="w-5 h-5 text-indigo-600" />
-          <span>Sơ đồ luồng kết nối tổng quát giữa địa phương &amp; Trung ương</span>
-        </h3>
-
-        <div className="p-5 rounded-xl bg-slate-900 text-white border border-slate-800 space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-3 items-center text-center">
-            {/* Step 1: Ứng dụng địa phương */}
-            <div className="bg-slate-800/90 border border-slate-700 rounded-xl p-3.5">
-              <Building className="w-6 h-6 text-amber-400 mx-auto mb-1.5" />
-              <div className="text-xs font-bold text-white">Hệ thống địa phương</div>
-              <div className="text-[10px] text-slate-400 mt-1">Một cửa điện tử, Cổng DVC, CSDL chuyên ngành các Sở</div>
-            </div>
-
-            <div className="hidden md:flex justify-center text-slate-500">
-              <ArrowRight className="w-5 h-5 text-slate-400 animate-pulse" />
-            </div>
-
-            {/* Step 2: LDOP cấp tỉnh */}
-            <div className="bg-slate-800/90 border border-slate-700 rounded-xl p-3.5">
-              <Layers className="w-6 h-6 text-blue-400 mx-auto mb-1.5" />
-              <div className="text-xs font-bold text-white">Nền tảng tỉnh (LDOP)</div>
-              <div className="text-[10px] text-slate-400 mt-1">Nâng cấp từ LGSP hiện có, điều phối nội bộ tỉnh</div>
-            </div>
-
-            <div className="hidden md:flex justify-center text-slate-500">
-              <ArrowRight className="w-5 h-5 text-slate-400 animate-pulse" />
-            </div>
-
-            {/* Step 3: Agent Node */}
-            <div className="bg-rose-950/60 border border-rose-500/50 rounded-xl p-3.5 ring-1 ring-rose-500/30">
-              <Lock className="w-6 h-6 text-rose-400 mx-auto mb-1.5" />
-              <div className="text-xs font-bold text-white">Agent Node (Máy chủ bảo mật)</div>
-              <div className="text-[10px] text-rose-200 mt-1">Đặt tại mạng biên DMZ tỉnh, do C12 BCA cài đặt &amp; giám sát 24/7</div>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-center">
-            <div className="px-4 py-1.5 rounded-full bg-slate-800 border border-slate-700 text-xs text-amber-300 font-mono flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              Mạng truyền số liệu chuyên dùng (TSLCD) • Mã hóa kênh truyền • Tối thiểu 10Gbps
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-slate-800">
-            <div className="bg-indigo-950/60 border border-indigo-500/40 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-indigo-300 font-bold text-xs mb-1">
-                <Network className="w-4 h-4" />
-                Nền tảng điều phối quốc gia (NDOP)
-              </div>
-              <p className="text-[11px] text-slate-300 leading-relaxed">
-                Điều phối lưu lượng, xác thực token/mã định danh, kiểm soát phân quyền RBAC, cân bằng tải và ghi log toàn bộ giao dịch.
-              </p>
-            </div>
-
-            <div className="bg-emerald-950/50 border border-emerald-500/40 rounded-xl p-4">
-              <div className="flex items-center gap-2 text-emerald-300 font-bold text-xs mb-1">
-                <Database className="w-4 h-4" />
-                Cụm 03 Trung tâm Dữ liệu quốc gia (NDC 1, 2, 3)
-              </div>
-              <p className="text-[11px] text-slate-300 leading-relaxed">
-                Lưu trữ CSDL Tổng hợp quốc gia, 20 CSDL quốc gia, hạ tầng tính toán hiệu năng cao HPC/AI và dự phòng thảm họa Active-Active-Standby.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Sơ đồ Động & Biểu đồ Luồng Dữ liệu NDOP - LDOP - Hệ thống Địa phương */}
+      <DataFlowArchitectureDiagram />
 
       {/* Quy hoạch Kho Dữ liệu địa phương (Phụ lục 2) */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm space-y-4">

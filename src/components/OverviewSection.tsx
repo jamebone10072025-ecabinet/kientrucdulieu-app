@@ -19,6 +19,7 @@ import {
   CalendarDays,
   Target
 } from 'lucide-react';
+import { NationalIntegrationDashboard } from './NationalIntegrationDashboard';
 
 export const OverviewSection: React.FC = () => {
   const [selectedDeptId, setSelectedDeptId] = useState<string>('compliance');
@@ -67,6 +68,9 @@ export const OverviewSection: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Bảng Giám sát Tiến độ Tích hợp Dữ liệu Quốc gia (D3 Charts) */}
+      <NationalIntegrationDashboard />
 
       {/* Căn cứ pháp lý then chốt */}
       <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
