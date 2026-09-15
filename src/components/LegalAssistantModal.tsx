@@ -108,6 +108,13 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
 
+  useEffect(() => {
+    if (initialQuestion) {
+      setInputValue(initialQuestion);
+      setActiveTab('chat');
+    }
+  }, [initialQuestion]);
+
   // FAQ State
   const [search, setSearch] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');

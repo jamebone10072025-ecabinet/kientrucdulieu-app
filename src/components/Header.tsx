@@ -12,12 +12,14 @@ import {
   BookOpen
 } from 'lucide-react';
 import { NavigationTab } from '../types';
+import { SmartSearchBar } from './SmartSearchBar';
 
 interface HeaderProps {
   activeTab: NavigationTab;
   setActiveTab: (tab: NavigationTab) => void;
   onOpenDqiCalc: () => void;
   onOpenAssistant: () => void;
+  onOpenAssistantWithPrompt?: (prompt: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -25,6 +27,7 @@ export const Header: React.FC<HeaderProps> = ({
   setActiveTab,
   onOpenDqiCalc,
   onOpenAssistant,
+  onOpenAssistantWithPrompt,
 }) => {
   const tabs = [
     { id: 'overview' as NavigationTab, label: 'Khung Quản trị 5 Bộ phận', icon: Layers },
@@ -96,6 +99,16 @@ export const Header: React.FC<HeaderProps> = ({
             <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
             <span>Trợ lý AI Gemini</span>
           </button>
+        </div>
+      </div>
+
+      {/* Smart Search Bar Container */}
+      <div className="border-t border-slate-800/80 bg-slate-900/60 px-4 sm:px-6 lg:px-8 py-2.5">
+        <div className="max-w-7xl mx-auto">
+          <SmartSearchBar
+            onNavigateTab={setActiveTab}
+            onOpenAssistantWithPrompt={onOpenAssistantWithPrompt || ((prompt: string) => onOpenAssistant())}
+          />
         </div>
       </div>
 

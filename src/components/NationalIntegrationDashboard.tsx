@@ -38,9 +38,9 @@ export interface DepartmentIntegrationStat {
   shortName: string;
   sector: 'economy' | 'internal_affairs' | 'social' | 'infrastructure';
   sectorLabel: string;
-  allProvinces: DepartmentGroupBreakdown; // 63 provinces
+  allProvinces: DepartmentGroupBreakdown; // 34 provinces (theo mô hình chính quyền 02 cấp)
   nhom1: DepartmentGroupBreakdown;        // 8 key cities (HN, HCM, HP, ĐN, CT, Huế, ĐNai, QNinh)
-  nhom2: DepartmentGroupBreakdown;        // 55 remaining provinces
+  nhom2: DepartmentGroupBreakdown;        // 26 remaining provinces
   dqiScore: number;                      // %
   avgLatencyMs: number;
   dailyTransactions: string;
@@ -60,9 +60,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     shortName: 'Sở Tài chính (ĐKKD)',
     sector: 'economy',
     sectorLabel: 'Kinh tế & Đầu tư',
-    allProvinces: { target: 63, completed: 54, testing: 6, pending: 2, blocked: 1 },
+    allProvinces: { target: 34, completed: 30, testing: 3, pending: 1, blocked: 0 },
     nhom1: { target: 8, completed: 8, testing: 0, pending: 0, blocked: 0 },
-    nhom2: { target: 55, completed: 46, testing: 6, pending: 2, blocked: 1 },
+    nhom2: { target: 26, completed: 22, testing: 3, pending: 1, blocked: 0 },
     dqiScore: 98.6,
     avgLatencyMs: 14.2,
     dailyTransactions: '4.8M',
@@ -84,9 +84,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     shortName: 'Công an Tỉnh',
     sector: 'internal_affairs',
     sectorLabel: 'Nội chính & An ninh',
-    allProvinces: { target: 63, completed: 62, testing: 1, pending: 0, blocked: 0 },
+    allProvinces: { target: 34, completed: 33, testing: 1, pending: 0, blocked: 0 },
     nhom1: { target: 8, completed: 8, testing: 0, pending: 0, blocked: 0 },
-    nhom2: { target: 55, completed: 54, testing: 1, pending: 0, blocked: 0 },
+    nhom2: { target: 26, completed: 25, testing: 1, pending: 0, blocked: 0 },
     dqiScore: 99.8,
     avgLatencyMs: 8.5,
     dailyTransactions: '14.2M',
@@ -108,9 +108,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     shortName: 'Sở Tài chính',
     sector: 'economy',
     sectorLabel: 'Kinh tế & Tài chính',
-    allProvinces: { target: 63, completed: 49, testing: 8, pending: 4, blocked: 2 },
+    allProvinces: { target: 34, completed: 27, testing: 5, pending: 2, blocked: 0 },
     nhom1: { target: 8, completed: 7, testing: 1, pending: 0, blocked: 0 },
-    nhom2: { target: 55, completed: 42, testing: 7, pending: 4, blocked: 2 },
+    nhom2: { target: 26, completed: 20, testing: 4, pending: 2, blocked: 0 },
     dqiScore: 94.2,
     avgLatencyMs: 16.8,
     dailyTransactions: '3.6M',
@@ -132,9 +132,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     shortName: 'Sở Tư pháp',
     sector: 'internal_affairs',
     sectorLabel: 'Nội chính & Tư pháp',
-    allProvinces: { target: 63, completed: 57, testing: 4, pending: 2, blocked: 0 },
+    allProvinces: { target: 34, completed: 31, testing: 2, pending: 1, blocked: 0 },
     nhom1: { target: 8, completed: 8, testing: 0, pending: 0, blocked: 0 },
-    nhom2: { target: 55, completed: 49, testing: 4, pending: 2, blocked: 0 },
+    nhom2: { target: 26, completed: 23, testing: 2, pending: 1, blocked: 0 },
     dqiScore: 97.4,
     avgLatencyMs: 12.1,
     dailyTransactions: '2.5M',
@@ -156,9 +156,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     shortName: 'Sở TN&MT',
     sector: 'infrastructure',
     sectorLabel: 'Kỹ thuật & Đất đai',
-    allProvinces: { target: 63, completed: 38, testing: 14, pending: 7, blocked: 4 },
+    allProvinces: { target: 34, completed: 21, testing: 8, pending: 3, blocked: 2 },
     nhom1: { target: 8, completed: 6, testing: 2, pending: 0, blocked: 0 },
-    nhom2: { target: 55, completed: 32, testing: 12, pending: 7, blocked: 4 },
+    nhom2: { target: 26, completed: 15, testing: 6, pending: 3, blocked: 2 },
     dqiScore: 88.5,
     avgLatencyMs: 24.5,
     dailyTransactions: '1.9M',
@@ -180,9 +180,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     shortName: 'Sở Y tế',
     sector: 'social',
     sectorLabel: 'Xã hội & Y tế',
-    allProvinces: { target: 63, completed: 46, testing: 10, pending: 5, blocked: 2 },
+    allProvinces: { target: 34, completed: 26, testing: 5, pending: 2, blocked: 1 },
     nhom1: { target: 8, completed: 8, testing: 0, pending: 0, blocked: 0 },
-    nhom2: { target: 55, completed: 38, testing: 10, pending: 5, blocked: 2 },
+    nhom2: { target: 26, completed: 18, testing: 5, pending: 2, blocked: 1 },
     dqiScore: 92.3,
     avgLatencyMs: 17.5,
     dailyTransactions: '4.2M',
@@ -204,9 +204,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     shortName: 'Sở GD&ĐT',
     sector: 'social',
     sectorLabel: 'Xã hội & Giáo dục',
-    allProvinces: { target: 63, completed: 49, testing: 8, pending: 4, blocked: 2 },
+    allProvinces: { target: 34, completed: 27, testing: 4, pending: 2, blocked: 1 },
     nhom1: { target: 8, completed: 8, testing: 0, pending: 0, blocked: 0 },
-    nhom2: { target: 55, completed: 41, testing: 8, pending: 4, blocked: 2 },
+    nhom2: { target: 26, completed: 19, testing: 4, pending: 2, blocked: 1 },
     dqiScore: 93.8,
     avgLatencyMs: 15.1,
     dailyTransactions: '1.6M',
@@ -228,9 +228,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     shortName: 'Sở GTVT & Xây dựng',
     sector: 'infrastructure',
     sectorLabel: 'Kỹ thuật & Hạ tầng',
-    allProvinces: { target: 63, completed: 43, testing: 11, pending: 6, blocked: 3 },
+    allProvinces: { target: 34, completed: 23, testing: 6, pending: 3, blocked: 2 },
     nhom1: { target: 8, completed: 7, testing: 1, pending: 0, blocked: 0 },
-    nhom2: { target: 55, completed: 36, testing: 10, pending: 6, blocked: 3 },
+    nhom2: { target: 26, completed: 16, testing: 5, pending: 3, blocked: 2 },
     dqiScore: 90.1,
     avgLatencyMs: 19.3,
     dailyTransactions: '3.1M',
@@ -252,9 +252,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     shortName: 'Một cửa & Cổng DVC',
     sector: 'internal_affairs',
     sectorLabel: 'Hành chính công',
-    allProvinces: { target: 63, completed: 61, testing: 2, pending: 0, blocked: 0 },
+    allProvinces: { target: 34, completed: 33, testing: 1, pending: 0, blocked: 0 },
     nhom1: { target: 8, completed: 8, testing: 0, pending: 0, blocked: 0 },
-    nhom2: { target: 55, completed: 53, testing: 2, pending: 0, blocked: 0 },
+    nhom2: { target: 26, completed: 25, testing: 1, pending: 0, blocked: 0 },
     dqiScore: 99.4,
     avgLatencyMs: 9.2,
     dailyTransactions: '9.8M',
@@ -276,9 +276,9 @@ export const DEPARTMENT_INTEGRATION_DATA: DepartmentIntegrationStat[] = [
     shortName: 'Bảo hiểm Xã hội',
     sector: 'social',
     sectorLabel: 'Xã hội & An sinh',
-    allProvinces: { target: 63, completed: 60, testing: 2, pending: 1, blocked: 0 },
+    allProvinces: { target: 34, completed: 32, testing: 1, pending: 1, blocked: 0 },
     nhom1: { target: 8, completed: 8, testing: 0, pending: 0, blocked: 0 },
-    nhom2: { target: 55, completed: 52, testing: 2, pending: 1, blocked: 0 },
+    nhom2: { target: 26, completed: 24, testing: 1, pending: 1, blocked: 0 },
     dqiScore: 99.1,
     avgLatencyMs: 10.8,
     dailyTransactions: '7.2M',
@@ -511,7 +511,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
-    const maxTarget = selectedGroup === 'nhom1' ? 8 : selectedGroup === 'nhom2' ? 55 : 63;
+    const maxTarget = selectedGroup === 'nhom1' ? 8 : selectedGroup === 'nhom2' ? 26 : 34;
 
     // X Scale: 0 to maxTarget
     const xScale = d3.scaleLinear().domain([0, maxTarget]).range([0, innerWidth]);
@@ -747,7 +747,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Toàn quốc (63 tỉnh/thành)
+              Toàn quốc (34 tỉnh/thành - Mô hình 02 cấp)
             </button>
             <button
               onClick={() => setSelectedGroup('nhom1')}
@@ -767,7 +767,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Nhóm 2: 55 Tỉnh, thành phố còn lại
+              Nhóm 2: 26 Tỉnh, thành phố còn lại
             </button>
           </div>
         </div>
@@ -784,7 +784,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
             {totalCompleted} <span className="text-xs font-normal text-emerald-700">hệ thống</span>
           </div>
           <div className="text-[11px] text-emerald-700">
-            Chiếm <strong>{nationalCompletionRate}%</strong> trên tổng số {totalTarget} mục tiêu kết nối ({selectedGroup === 'all' ? 'Toàn quốc' : selectedGroup === 'nhom1' ? '08 Đô thị hạt nhân ưu tiên' : '55 Tỉnh, thành phố còn lại'})
+            Chiếm <strong>{nationalCompletionRate}%</strong> trên tổng số {totalTarget} mục tiêu kết nối ({selectedGroup === 'all' ? 'Toàn quốc (34 tỉnh/thành)' : selectedGroup === 'nhom1' ? '08 Đô thị hạt nhân ưu tiên' : '26 Tỉnh, thành phố còn lại'})
           </div>
         </div>
 
@@ -835,7 +835,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
           <div className="w-full text-left">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
               <PieChartIcon className="w-4 h-4 text-indigo-600" />
-              Tỷ trọng Trạng thái Tích hợp ({selectedGroup === 'all' ? 'Toàn quốc' : selectedGroup === 'nhom1' ? 'Nhóm 1 (08 Đô thị)' : 'Nhóm 2 (55 Tỉnh, thành phố)'})
+              Tỷ trọng Trạng thái Tích hợp ({selectedGroup === 'all' ? 'Toàn quốc (34 tỉnh/thành)' : selectedGroup === 'nhom1' ? 'Nhóm 1 (08 Đô thị)' : 'Nhóm 2 (26 Tỉnh, thành phố)'})
             </h4>
             <p className="text-[11px] text-slate-500 mt-0.5">Biểu đồ hình vành khuyên (Donut Chart) phân bổ trên tổng số {totalTarget} điểm kết nối</p>
           </div>
@@ -967,7 +967,7 @@ export const NationalIntegrationDashboard: React.FC = () => {
 
           {/* D3 Bar Chart Sub-header and Legend */}
           <div className="flex flex-wrap items-center justify-between text-[11px] text-slate-500">
-            <span>Tiến độ hoàn thành của từng sở, ngành trên địa bàn ({selectedGroup === 'all' ? '63 Tỉnh, thành phố' : selectedGroup === 'nhom1' ? '08 Đô thị hạt nhân ưu tiên' : '55 Tỉnh, thành phố còn lại'}):</span>
+            <span>Tiến độ hoàn thành của từng sở, ngành trên địa bàn ({selectedGroup === 'all' ? '34 Tỉnh, thành phố (Mô hình chính quyền 02 cấp)' : selectedGroup === 'nhom1' ? '08 Đô thị hạt nhân ưu tiên' : '26 Tỉnh, thành phố còn lại'}):</span>
             <div className="flex items-center gap-3">
               <span className="flex items-center gap-1">
                 <span className="w-2.5 h-2.5 rounded bg-emerald-500" /> Hoàn thành

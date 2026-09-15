@@ -209,7 +209,7 @@ export const DataFlowArchitectureDiagram: React.FC = () => {
       icon: Network,
       techStack: ['Quốc gia High-Throughput Service Mesh', 'Central API Gateway', 'Enterprise Kafka Cluster', 'Dynamic RBAC Router'],
       securityLevel: 'Cấp độ 5 (Hạ tầng thông tin trọng yếu quốc gia)',
-      roleDescription: 'Trục điều phối dữ liệu tối cao của đất nước, kết nối tất cả các Bộ, ban, ngành, 63 tỉnh/thành phố và các tổ chức chính trị - xã hội. Kiểm soát toàn bộ giao dịch, chia sẻ 03 loại yêu cầu kết nối theo Nghị định 278.',
+      roleDescription: 'Trục điều phối dữ liệu tối cao của đất nước, kết nối tất cả các Bộ, ban, ngành, 34 tỉnh/thành phố (theo mô hình chính quyền 02 cấp) và các tổ chức chính trị - xã hội. Kiểm soát toàn bộ giao dịch, chia sẻ 03 loại yêu cầu kết nối theo Nghị định 278.',
       legalBasis: 'Nghị định 278/2025/NĐ-CP & Quyết định 2439/QĐ-TTg',
       keyFunctions: [
         'Điều phối lưu lượng truy vấn, xử lý hàng triệu giao dịch/giây',

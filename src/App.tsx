@@ -24,6 +24,12 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<NavigationTab>('overview');
   const [isDqiCalcOpen, setIsDqiCalcOpen] = useState<boolean>(false);
   const [isAssistantOpen, setIsAssistantOpen] = useState<boolean>(false);
+  const [assistantInitialQuestion, setAssistantInitialQuestion] = useState<string>('');
+
+  const handleOpenAssistantWithPrompt = (prompt: string) => {
+    setAssistantInitialQuestion(prompt);
+    setIsAssistantOpen(true);
+  };
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-100 text-slate-900 font-sans">
@@ -32,7 +38,11 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         onOpenDqiCalc={() => setIsDqiCalcOpen(true)}
-        onOpenAssistant={() => setIsAssistantOpen(true)}
+        onOpenAssistant={() => {
+          setAssistantInitialQuestion('');
+          setIsAssistantOpen(true);
+        }}
+        onOpenAssistantWithPrompt={handleOpenAssistantWithPrompt}
       />
 
       {/* Main Container */}
@@ -106,7 +116,8 @@ export default function App() {
       />
       <LegalAssistantModal 
         isOpen={isAssistantOpen} 
-        onClose={() => setIsAssistantOpen(false)} 
+        onClose={() => setIsAssistantOpen(false)}
+        initialQuestion={assistantInitialQuestion}
       />
     </div>
   );
