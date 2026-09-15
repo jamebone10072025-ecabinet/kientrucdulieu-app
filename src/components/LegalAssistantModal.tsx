@@ -205,26 +205,28 @@ export const LegalAssistantModal: React.FC<LegalAssistantModalProps> = ({ isOpen
     <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
       <div className="bg-white rounded-2xl max-w-4xl w-full shadow-2xl border border-slate-200 overflow-hidden flex flex-col h-[90vh] max-h-[850px]">
         {/* Header */}
-        <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-4 sm:p-5 text-white flex items-center justify-between border-b border-indigo-900/50 shrink-0">
-          <div className="flex items-center gap-3">
-            <div className="p-2 rounded-xl bg-gradient-to-br from-amber-400 to-indigo-500 shadow-md">
+        <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-3.5 sm:p-5 text-white flex items-center justify-between border-b border-indigo-900/50 shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+            <div className="p-2 rounded-xl bg-gradient-to-br from-amber-400 to-indigo-500 shadow-md shrink-0">
               <Sparkles className="w-5 h-5 text-slate-950 animate-pulse" />
             </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <h3 className="text-base font-bold tracking-tight">Trợ lý AI Gemini • Cố vấn Kiến trúc & Quản trị dữ liệu</h3>
-                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/30 text-indigo-200 border border-indigo-400/30">
-                  Gemini 3.6 Flash / 3.8
+            <div className="min-w-0">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                <h3 className="text-sm sm:text-base font-bold tracking-tight truncate sm:whitespace-normal">
+                  Trợ lý AI Gemini • Cố vấn Dữ liệu Quốc gia
+                </h3>
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-indigo-500/30 text-indigo-200 border border-indigo-400/30 hidden xs:inline-block">
+                  Gemini 3.8 Flash
                 </span>
               </div>
-              <p className="text-[11px] text-indigo-200/90">
-                Grounding chuẩn theo Quyết định 2439/QĐ-TTg, Công văn 4856/BCA-TTDLQG &amp; Mô hình chính quyền 2 cấp
+              <p className="text-[10px] sm:text-[11px] text-indigo-200/90 truncate sm:whitespace-normal">
+                Grounding theo QĐ 2439/QĐ-TTg, CV 4856/BCA &amp; Mô hình 2 cấp
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-sm font-bold transition-all"
+            className="w-9 h-9 sm:w-8 sm:h-8 rounded-lg bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white text-sm font-bold transition-all shrink-0 touch-manipulation ml-2"
           >
             ✕
           </button>

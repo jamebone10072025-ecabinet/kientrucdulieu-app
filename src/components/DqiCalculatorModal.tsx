@@ -71,29 +71,29 @@ export const DqiCalculatorModal: React.FC<DqiCalculatorModalProps> = ({ isOpen, 
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
-      <div className="bg-white rounded-2xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden my-8">
+    <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 overflow-y-auto">
+      <div className="bg-white rounded-2xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden my-4 sm:my-8">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 p-5 text-white flex items-center justify-between">
+        <div className="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 p-4 sm:p-5 text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="p-2 rounded-lg bg-blue-500/20 border border-blue-400/30">
+            <div className="p-2 rounded-lg bg-blue-500/20 border border-blue-400/30 shrink-0">
               <Calculator className="w-5 h-5 text-blue-300" />
             </div>
             <div>
-              <h3 className="text-base font-bold">Máy tính &amp; đánh giá chỉ số DQI chuẩn Quốc gia</h3>
-              <p className="text-[11px] text-blue-200">Áp dụng công thức tính toán toán học theo Phụ lục 3 Mục III Công văn 4856</p>
+              <h3 className="text-sm sm:text-base font-bold">Máy tính &amp; đánh giá chỉ số DQI chuẩn Quốc gia</h3>
+              <p className="text-[10px] sm:text-[11px] text-blue-200">Áp dụng công thức tính toán toán học theo Phụ lục 3 Mục III Công văn 4856</p>
             </div>
           </div>
           <button 
             onClick={onClose}
-            className="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-sm font-bold transition-all"
+            className="w-9 h-9 sm:w-8 sm:h-8 rounded-lg bg-white/10 hover:bg-white/20 active:bg-white/30 flex items-center justify-center text-white text-sm font-bold transition-all shrink-0 touch-manipulation"
           >
             ✕
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-6 space-y-5 text-xs">
+        <div className="p-4 sm:p-6 space-y-5 text-xs">
           {/* Quick preset buttons */}
           <div className="flex flex-wrap items-center gap-2 pb-2 border-b border-slate-100">
             <span className="text-slate-500 font-medium">Tải nhanh ví dụ mẫu:</span>
