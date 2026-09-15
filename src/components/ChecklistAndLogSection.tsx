@@ -13,7 +13,11 @@ import {
   CheckCircle2,
   XCircle,
   AlertOctagon,
-  Filter
+  Filter,
+  Sparkles,
+  Bot,
+  Copy,
+  RefreshCw
 } from 'lucide-react';
 
 export const ChecklistAndLogSection: React.FC = () => {
@@ -36,12 +40,18 @@ export const ChecklistAndLogSection: React.FC = () => {
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [showAddModal, setShowAddModal] = useState<boolean>(false);
 
+  // AI Diagnose State
+  const [diagnosingLog, setDiagnosingLog] = useState<IssueLogItem | null>(null);
+  const [diagnosisResult, setDiagnosisResult] = useState<string | null>(null);
+  const [isDiagnosing, setIsDiagnosing] = useState<boolean>(false);
+  const [copiedDiagnosis, setCopiedDiagnosis] = useState<boolean>(false);
+
   // New Issue Form
   const [newCode, setNewCode] = useState<string>('ERR-004');
   const [newErrorType, setNewErrorType] = useState<string>('Trùng lặp dữ liệu');
   const [newSeverity, setNewSeverity] = useState<'Đỏ' | 'Vàng' | 'Xanh'>('Đỏ');
   const [newViolatingField, setNewViolatingField] = useState<string>('Mã số doanh nghiệp');
-  const [newUnit, setNewUnit] = useState<string>('Sở Kế hoạch và Đầu tư');
+  const [newUnit, setNewUnit] = useState<string>('Sở Tài chính');
   const [newSource, setNewSource] = useState<string>('Rà soát định kỳ TTDLQG');
   const [newDeadline, setNewDeadline] = useState<string>('5 ngày làm việc');
 
@@ -74,6 +84,35 @@ export const ChecklistAndLogSection: React.FC = () => {
 
   const updateStatus = (id: string, newStatus: IssueLogItem['status']) => {
     setLogs(logs.map(log => log.id === id ? { ...log, status: newStatus } : log));
+  };
+
+  const handleDiagnose = async (log: IssueLogItem) => {
+    setDiagnosingLog(log);
+    setIsDiagnosing(true);
+    setDiagnosisResult(null);
+    setCopiedDiagnosis(false);
+
+    try {
+      const res = await fetch('/api/gemini/diagnose-issue', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          errorType: log.errorType,
+          violatingField: log.violatingField,
+          responsibleUnit: log.responsibleUnit,
+          description: `${log.code}: ${log.actionTaken}`,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok || data.error) {
+        throw new Error(data.error || 'Không thể chẩn đoán sự cố.');
+      }
+      setDiagnosisResult(data.diagnosis);
+    } catch (err: any) {
+      setDiagnosisResult(`Lỗi phân tích từ Gemini: ${err.message || 'Vui lòng kiểm tra lại cấu hình hệ thống'}`);
+    } finally {
+      setIsDiagnosing(false);
+    }
   };
 
   const filteredLogs = statusFilter === 'all' ? logs : logs.filter(l => l.status === statusFilter);
@@ -217,6 +256,7 @@ export const ChecklistAndLogSection: React.FC = () => {
                 <th className="p-3">Bộ phận khắc phục</th>
                 <th className="p-3 w-24">Hạn xử lý (SLA)</th>
                 <th className="p-3 w-28 text-center">Trạng thái</th>
+                <th className="p-3 w-28 text-center">AI Chẩn đoán</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
@@ -254,6 +294,16 @@ export const ChecklistAndLogSection: React.FC = () => {
                       <option value="Đang xử lý">Đang xử lý</option>
                       <option value="Hoàn thành">Hoàn thành</option>
                     </select>
+                  </td>
+                  <td className="p-3 text-center">
+                    <button
+                      onClick={() => handleDiagnose(log)}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 bg-gradient-to-r from-amber-600 to-indigo-600 hover:from-amber-500 hover:to-indigo-500 text-white rounded-md text-[11px] font-bold shadow-2xs transition-all"
+                      title="Sử dụng Gemini AI để phân tích nguyên nhân gốc rễ, SLA và tạo câu lệnh SQL khắc phục"
+                    >
+                      <Sparkles className="w-3 h-3 text-amber-200" />
+                      <span>Chẩn đoán</span>
+                    </button>
                   </td>
                 </tr>
               ))}
@@ -331,9 +381,19 @@ export const ChecklistAndLogSection: React.FC = () => {
                     type="text"
                     value={newUnit}
                     onChange={(e) => setNewUnit(e.target.value)}
-                    className="w-full p-2 border border-slate-300 rounded-lg"
+                    list="suggested-units"
+                    placeholder="Sở Tài chính, Phòng Nghiệp vụ..."
+                    className="w-full p-2 border border-slate-300 rounded-lg text-xs"
                     required
                   />
+                  <datalist id="suggested-units">
+                    <option value="Bộ phận Một cửa - Sở Tài chính" />
+                    <option value="Sở Tài chính" />
+                    <option value="Phòng Cảnh sát QLHC về TTXH" />
+                    <option value="Phòng Hộ tịch - Sở Tư pháp" />
+                    <option value="Trung tâm Phục vụ hành chính công tỉnh" />
+                    <option value="UBND cấp xã / phường (Đầu mối cơ sở)" />
+                  </datalist>
                 </div>
                 <div>
                   <label className="font-bold text-slate-700 block mb-1">Hạn xử lý (SLA)</label>
@@ -341,7 +401,7 @@ export const ChecklistAndLogSection: React.FC = () => {
                     type="text"
                     value={newDeadline}
                     onChange={(e) => setNewDeadline(e.target.value)}
-                    className="w-full p-2 border border-slate-300 rounded-lg"
+                    className="w-full p-2 border border-slate-300 rounded-lg text-xs"
                     required
                   />
                 </div>
@@ -363,6 +423,97 @@ export const ChecklistAndLogSection: React.FC = () => {
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      )}
+
+      {/* AI Issue Diagnosis Modal */}
+      {diagnosingLog && (
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4 overflow-y-auto">
+          <div className="bg-white rounded-2xl max-w-2xl w-full shadow-2xl border border-slate-200 overflow-hidden my-8 flex flex-col max-h-[85vh]">
+            <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 p-4 text-white flex items-center justify-between border-b border-indigo-900/50">
+              <div className="flex items-center gap-2.5">
+                <div className="p-2 rounded-lg bg-gradient-to-br from-amber-400 to-indigo-500 shadow-sm">
+                  <Sparkles className="w-4 h-4 text-slate-950" />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold flex items-center gap-2">
+                    AI Chẩn đoán sự cố: <span className="text-amber-300 font-mono">{diagnosingLog.code}</span>
+                  </h4>
+                  <p className="text-[11px] text-indigo-200">
+                    Phân tích nguyên nhân gốc rễ, căn cứ SLA &amp; kịch bản SQL khắc phục (Gemini 3.8 Flash)
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setDiagnosingLog(null)}
+                className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-xs font-bold transition-all"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="p-4 bg-slate-50 border-b border-slate-200 text-xs grid grid-cols-2 sm:grid-cols-4 gap-2">
+              <div className="bg-white p-2 rounded-lg border border-slate-200">
+                <span className="text-[10px] text-slate-400 block font-semibold">Phân loại lỗi</span>
+                <span className="font-bold text-slate-800">{diagnosingLog.errorType}</span>
+              </div>
+              <div className="bg-white p-2 rounded-lg border border-slate-200">
+                <span className="text-[10px] text-slate-400 block font-semibold">Trường vi phạm</span>
+                <span className="font-mono font-bold text-blue-700">{diagnosingLog.violatingField}</span>
+              </div>
+              <div className="bg-white p-2 rounded-lg border border-slate-200">
+                <span className="text-[10px] text-slate-400 block font-semibold">Đơn vị khắc phục</span>
+                <span className="font-bold text-slate-800">{diagnosingLog.responsibleUnit}</span>
+              </div>
+              <div className="bg-white p-2 rounded-lg border border-slate-200">
+                <span className="text-[10px] text-slate-400 block font-semibold">Thời hạn SLA</span>
+                <span className="font-bold text-red-600">{diagnosingLog.slaDeadline}</span>
+              </div>
+            </div>
+
+            <div className="p-5 flex-1 overflow-y-auto space-y-3">
+              {isDiagnosing ? (
+                <div className="py-12 flex flex-col items-center justify-center gap-3 text-center">
+                  <RefreshCw className="w-6 h-6 text-indigo-600 animate-spin" />
+                  <p className="text-xs font-semibold text-slate-700">
+                    Gemini đang phân tích hồ sơ lỗi, đối soát Phụ lục 3 Công văn 4856 &amp; soạn kịch bản SQL...
+                  </p>
+                </div>
+              ) : diagnosisResult ? (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between text-xs border-b border-slate-200 pb-2">
+                    <span className="font-bold text-slate-800 flex items-center gap-1.5">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                      Báo cáo chẩn đoán kỹ thuật &amp; phương án xử lý
+                    </span>
+                    <button
+                      onClick={() => {
+                        navigator.clipboard.writeText(diagnosisResult);
+                        setCopiedDiagnosis(true);
+                        setTimeout(() => setCopiedDiagnosis(false), 2000);
+                      }}
+                      className="text-[11px] text-indigo-600 hover:text-indigo-800 flex items-center gap-1"
+                    >
+                      <Copy className="w-3.5 h-3.5" />
+                      <span>{copiedDiagnosis ? 'Đã sao chép' : 'Sao chép nội dung'}</span>
+                    </button>
+                  </div>
+                  <div className="text-xs text-slate-700 whitespace-pre-wrap leading-relaxed bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    {diagnosisResult}
+                  </div>
+                </div>
+              ) : null}
+            </div>
+
+            <div className="p-3.5 bg-slate-100 border-t border-slate-200 flex justify-end gap-2">
+              <button
+                onClick={() => setDiagnosingLog(null)}
+                className="px-4 py-1.5 bg-slate-900 text-white rounded-lg text-xs font-bold hover:bg-slate-800 transition-colors"
+              >
+                Đóng
+              </button>
+            </div>
           </div>
         </div>
       )}

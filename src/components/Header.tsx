@@ -90,11 +90,11 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
           <button
             onClick={onOpenAssistant}
-            className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white rounded-lg text-xs font-semibold shadow-sm transition-all border border-amber-300/30"
-            title="Tra cứu nhanh tình huống và hướng dẫn thực thi"
+            className="flex items-center gap-1.5 px-3 py-1.5 bg-gradient-to-r from-amber-600 via-indigo-600 to-indigo-700 hover:from-amber-500 hover:to-indigo-600 text-white rounded-lg text-xs font-semibold shadow-sm transition-all border border-amber-300/40"
+            title="Trợ lý AI Gemini 3.8 Flash tư vấn nghiệp vụ, pháp lý & ánh xạ từ điển dữ liệu"
           >
-            <HelpCircle className="w-4 h-4 text-amber-200" />
-            <span>Hỏi đáp nghiệp vụ</span>
+            <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
+            <span>Trợ lý AI Gemini</span>
           </button>
         </div>
       </div>

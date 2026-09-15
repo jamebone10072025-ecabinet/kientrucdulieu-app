@@ -253,7 +253,7 @@ export const CORE_DATA_DOMAINS: DataDomain[] = [
     name: '2. Miền dữ liệu về Tổ chức',
     code: 'DOM-ORG',
     description: 'Chứa thông tin pháp lý về doanh nghiệp, hợp tác xã, cơ quan nhà nước, tổ chức sự nghiệp và đoàn thể.',
-    authority: 'Bộ Kế hoạch & Đầu tư / Bộ Nội vụ / Bộ Tài chính',
+    authority: 'Bộ Kế hoạch & Đầu tư / Bộ Tài chính / Bộ Nội vụ (Cấp tỉnh: Sở Tài chính)',
     sourceDb: 'CSDL Quốc gia về Đăng ký doanh nghiệp, CSDL Cán bộ công chức viên chức',
     identifierKey: 'Mã số doanh nghiệp / Mã số thuế / Mã định danh cơ quan nhà nước',
     sampleFields: [
@@ -262,7 +262,7 @@ export const CORE_DATA_DOMAINS: DataDomain[] = [
       { field: 'Nguoi_Dai_Dien_Phap_Luat', type: 'String(12)', description: 'Số ĐDCN của người đại diện pháp luật', required: true, technicalRule: 'Foreign Key -> DOM-HUMAN.So_Dinh_Danh' },
       { field: 'Trang_Thai_Hoat_Dong', type: 'String(50)', description: 'Tình trạng pháp lý hoạt động của doanh nghiệp', required: true, technicalRule: 'Dropdown API Master Data' },
     ],
-    purposeAtProvince: 'Cấp phép kinh doanh, quản lý thuế, thanh tra kiểm tra doanh nghiệp trên địa bàn tỉnh.',
+    purposeAtProvince: 'Cấp phép kinh doanh, quản lý doanh nghiệp và thuế trên địa bàn tỉnh (do Sở Tài chính đảm nhiệm theo mô hình chính quyền địa phương 2 cấp).',
     accessMode: 'API/DaaS',
   },
   {
@@ -488,7 +488,7 @@ export const INITIAL_ISSUE_LOGS: IssueLogItem[] = [
     severityLevel: 'Vàng',
     warningSource: 'Rà quét nội bộ (Data Profiling)',
     violatingField: 'Số điện thoại liên hệ đại diện pháp luật',
-    responsibleUnit: 'Bộ phận Một cửa - Sở KH&ĐT',
+    responsibleUnit: 'Bộ phận Một cửa - Sở Tài chính (tiếp nhận từ Sở KH&ĐT theo mô hình chính quyền 2 cấp)',
     slaDeadline: '09/10/2026 (SLA 5 ngày)',
     status: 'Mới',
     actionTaken: 'Cấu hình lại phần mềm bắt buộc gán thuộc tính NOT NULL, thông báo 3 doanh nghiệp bổ sung số điện thoại.',
@@ -524,7 +524,7 @@ export const CHECKLIST_ITEMS = [
       { id: 'c5', text: '5. Bản ghi chuẩn bị đồng bộ đã được xác thực, phê duyệt bởi Bộ phận tạo lập dữ liệu có thẩm quyền.' },
       { id: 'c6', text: '6. Dữ liệu truyền tải đã được ký số của cơ quan để bảo đảm tính toàn vẹn (Digital Signature).' },
       { id: 'c7', text: '7. Đã rà soát, loại bỏ dữ liệu thuộc phạm vi bí mật nhà nước không được phép chia sẻ tự động.' },
-      { id: 'c8', text: '8. Dữ liệu danh mục (ĐVHC cấp tỉnh, huyện, xã...) khớp với bảng mã Danh mục quốc gia phiên bản mới nhất do Bộ phận QTDL ban hành.' },
+      { id: 'c8', text: '8. Dữ liệu danh mục ĐVHC (cấp tỉnh, cấp xã theo mô hình chính quyền địa phương 2 cấp, bảng ánh xạ ĐVHC cấp huyện lịch sử) khớp với bảng mã Danh mục quốc gia phiên bản mới nhất do Bộ phận QTDL ban hành.' },
     ],
   },
   {
