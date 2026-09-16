@@ -40,22 +40,18 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className="relative z-30 bg-slate-900 text-white border-b border-slate-800 shadow-md">
-      {/* Top Banner with Official Emblem Style - Mobile Standardized */}
+      {/* Top Banner with Official Style - Mobile Standardized */}
       <div className="bg-gradient-to-r from-red-900 via-red-800 to-amber-950 px-3 sm:px-4 py-1.5 sm:py-2 text-xs border-b border-amber-500/30 flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2 min-w-0">
           <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-amber-400 text-red-900 font-bold text-[10px] shadow-sm shrink-0">
             ★
           </span>
-          <span className="font-bold tracking-wide uppercase text-amber-200 text-[10px] sm:text-xs truncate sm:whitespace-normal">
-            <span className="sm:hidden">BỘ CÔNG AN • TRUNG TÂM DỮ LIỆU QUỐC GIA</span>
-            <span className="hidden sm:inline">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM • BỘ CÔNG AN • TRUNG TÂM DỮ LIỆU QUỐC GIA</span>
+          <span className="bg-black/30 px-2 py-0.5 rounded border border-amber-500/30 font-medium text-amber-100/90 text-[10px] sm:text-[11px]">
+            Công văn 4856/BCA-TTDLQG (14/9/2026)
           </span>
         </div>
         <div className="flex items-center gap-2 sm:gap-3 text-amber-100/90 text-[10px] sm:text-[11px] shrink-0">
-          <span className="bg-black/30 px-2 py-0.5 rounded border border-amber-500/30 font-medium">
-            CV 4856/BCA (14/9/2026)
-          </span>
-          <span className="bg-black/30 px-2 py-0.5 rounded border border-amber-500/30 hidden md:inline-block">
+          <span className="bg-black/30 px-2 py-0.5 rounded border border-amber-500/30">
             QĐ 2439/QĐ-TTg &amp; NĐ 278/2025
           </span>
         </div>
